@@ -1,0 +1,1593 @@
+ @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap');
+
+ /*Navbar.......................................................................*/
+ .navbar {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 2000;
+    transition: all 0.4s ease-in-out;
+    background-color:#D8D5D1;
+}
+.dropdown-item:hover {
+    background-color: #B88A4A !important;
+    color: #fff !important;
+}
+/* Desktop par hover effect */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; /* Smooth alignment ke liye */
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-menu {
+        display: none; /* Default mein chhupa rahega */
+        transition: all 0.3s ease;
+    }
+}
+
+
+.nav-link:hover {
+    color: #B88A4A !important;
+}
+ .social-box {
+     width: 40px;
+     height: 40px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: #000;
+     cursor: pointer;
+     position: relative;
+     /* 1. Main Square Border */
+     border: 1px solid #B88A4A;
+     background-color: transparent;
+     transition: 0.3s;
+     margin: 10px;
+
+ }
+
+ 
+ .social-box::before {
+     content: "";
+     position: absolute;
+     top: 4px;
+     left: 4px;
+     right: 4px;
+     bottom: 4px;
+     border: 1px solid #B88A4A;
+ }
+
+
+ .social-box::after {
+
+     content: "";
+     position: absolute;
+     top: -10px;
+     left: -10px;
+     right: -10px;
+     bottom: -10px;
+     background:
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 10px 0,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 10px) 0,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 10px 100%,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 10px) 100%,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 10px,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 calc(100% - 10px),
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% 10px,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% calc(100% - 10px);
+     background-repeat: no-repeat;
+     background-size: 1.5px 100%, 1.5px 100%, 1.5px 100%, 1.5px 100%, 100% 1.5px, 100% 1.5px, 100% 1.5px, 100% 1.5px;
+
+
+
+     .social-box:hover {
+         background-color: #B88A4A;
+     }
+
+     .social-box:hover::after {
+        
+         opacity: 1;
+     }
+
+     .social-box:hover * {
+         color: #fff;
+        
+         fill: #fff;
+        
+     }
+
+ }
+
+
+ /*Header............................................*/
+
+ /* Poore Header ka Container */
+ /* Poore header ka background image setup */
+ .hero-header {
+     background: url('../src/img/hero-bg.jpg') no-repeat center center;
+     background-size: cover;
+     height: 100vh;
+     width: 100%;
+     position: relative;
+     overflow: hidden;
+ }
+
+
+ .hero-bg-overlay {
+     position: absolute;
+     inset: 0;
+
+     backdrop-filter: blur(1px);
+     z-index: 1;
+ }
+
+ .header-content-wrapper {
+     position: relative;
+     z-index: 2;
+ }
+
+
+ .welcome-text {
+     color: #c5a47e;
+     font-family: 'serif';
+     font-style: italic;
+ }
+
+ .main-title {
+     color: #222;
+     font-family: 'serif';
+     font-size: 4.5rem;
+     line-height: 1.1;
+ }
+
+
+ .contact-icon-box {
+     border: 1px solid #ddd;
+     padding: 10px 15px;
+     background: #c5a47e;
+     color: white;
+ }
+
+ .contact-label {
+     color: #888;
+     font-size: 10px;
+     text-transform: uppercase;
+     display: block;
+ }
+
+ .contact-value {
+     font-weight: bold;
+     color: #333;
+ }
+
+
+ .slider-image {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     position: absolute;
+     top: 0;
+     left: 0;
+     transition: opacity 2s ease-in-out;
+ }
+
+
+ .slider-nav-container {
+     position: absolute;
+     bottom: 0;
+     right: 0;
+     background-color: #c5a47e;
+     display: flex;
+     align-items: center;
+     padding: 10px 25px;
+     z-index: 10;
+ }
+
+ .nav-arrow-btn {
+     background: none;
+     border: none;
+     color: white;
+     font-size: 1.5rem;
+     cursor: pointer;
+     padding: 0 15px;
+ }
+
+ .nav-arrow-divider {
+     width: 1px;
+     height: 30px;
+     background-color: rgba(255, 255, 255, 0.3);
+ }
+
+
+ .custom-icon-box {
+     position: relative;
+     background-color: #c5a47e;
+
+     color: white;
+     width: 45px;
+     height: 45px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.2rem;
+     z-index: 5;
+ }
+
+
+ .icon-line-1,
+ .icon-line-2 {
+     position: absolute;
+     width: calc(100% + 20px);
+     height: calc(100% + 20px);
+     pointer-events: none;
+ }
+
+
+ .custom-icon-box::after {
+     content: "";
+     position: absolute;
+     top: -10px;
+     left: 2px;
+     right: 2px;
+     bottom: -10px;
+     border-left: 1px solid #f9f7f2;
+     font-weight: 600;
+     border-right: 1px solid #f9f7f2;
+     z-index: -1;
+ }
+
+
+ .icon-line-1 {
+     border-top: 3px solid #c5a47e;
+     border-bottom: 3px solid #c5a47e;
+     top: -4px;
+     left: -10px;
+     width: calc(100% + 20px);
+     height: calc(100% + 8px);
+ }
+
+
+ .icon-line-2 {
+     border-left: 3px solid #c5a47e;
+     border-right: 3px solid #c5a47e;
+     top: -10px;
+     left: -4px;
+     width: calc(100% + 8px);
+     height: calc(100% + 20px);
+ }
+
+
+
+ /*about............................................*/
+.border-gold {
+    border-color: #B88A4A !important;
+}
+
+.breadcrumb-section {
+    position: relative;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+/* Custom Read More Button Style */
+.btn-gold-frame {
+    color: #B88A4A;
+    border: 1px solid #B88A4A;
+    position: relative;
+    display: inline-block;
+    background: transparent;
+    transition: 0.3s;
+}
+
+/* Double border effect for button */
+.btn-gold-frame::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    bottom: 4px;
+    border: 1px solid #B88A4A;
+    transition: 0.3s;
+}
+
+.btn-gold-frame:hover {
+    background-color: #B88A4A;
+    color: white !important;
+}
+
+.btn-gold-frame:hover::after {
+    border-color: white;
+}
+
+.stat-card {
+    background: #fff;
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+ .about-section {
+     background-color: #ffffff;
+     font-family: 'Poppins', sans-serif;
+     margin-bottom: -100px;
+ }
+
+ .about-subtitle {
+     color: #B88A4A;
+     font-family: 'Playfair Display', serif;
+     /* Script style font in image */
+     font-style: italic;
+     font-size: 1.5rem;
+ }
+
+ .about-main-title {
+     font-family: 'Playfair Display', serif;
+     font-weight: 700;
+     font-size: 3rem;
+     color: #222;
+ }
+
+ /* Phone Strip Styling */
+ .phone-box-square {
+     background-color: #B88A4A;
+     width: 70px;
+     height: 70px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 24px;
+     color: white;
+ }
+
+ /* Stats Styling */
+ .stat-card {
+     background-color: #FDFBFA;
+     /* Light cream background from image */
+     padding: 40px 20px;
+     text-align: center;
+     height: 100%;
+ }
+
+ .stat-icon-wrapper {
+     margin-bottom: 15px;
+ }
+
+ .stat-number {
+     font-family: 'Playfair Display', serif;
+     font-weight: 700;
+     font-size: 2.5rem;
+     margin-bottom: 5px;
+ }
+
+ .stat-label {
+     font-size: 0.85rem;
+     letter-spacing: 2px;
+     font-weight: 600;
+     color: #555;
+     text-transform: uppercase;
+ }
+
+ /* --- THE READ MORE FRAME DESIGN --- */
+ .custom-frame-btn {
+     width: 180px;
+     height: 55px;
+     padding: 2px;
+     position: relative;
+     border: 1px solid #B88A4A;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: #B88A4A;
+     /* Fill color */
+ }
+
+ /* Double Border Line */
+ .custom-frame-btn::before {
+     content: "";
+     position: absolute;
+
+     /* Subtle white inner border */
+     pointer-events: none;
+ }
+
+ /* Corner Cross Lines */
+ .custom-frame-btn::after {
+     content: "";
+     position: absolute;
+     top: -15px;
+     left: -15px;
+     right: -15px;
+     bottom: -15px;
+     background:
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 10px 0,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 10px) 0,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 10px 100%,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 10px) 100%,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 10px,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 calc(100% - 10px),
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% 10px,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% calc(100% - 10px);
+     background-repeat: no-repeat;
+     background-size: 1.5px 100%, 1.5px 100%, 1.5px 100%, 1.5px 100%, 100% 1.5px, 100% 1.5px, 100% 1.5px, 100% 1.5px;
+ }
+
+ .btn-read-more-text {
+     background: transparent;
+     border: none;
+     color: #fff;
+     font-weight: 600;
+     letter-spacing: 1px;
+     z-index: 5;
+     cursor: pointer;
+     margin: 20px;
+ }
+
+ /*service............................................................*/
+
+ .services-section {
+     width: 1200px;
+
+     margin-left: auto;
+     /* Ye center karega */
+     margin-right: auto;
+     /* Ye center karega */
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+
+
+     max-width: 100%;
+ }
+
+ p {
+     font-size: 13px;
+ }
+
+ /* Typography as per Image */
+ .services-subtitle {
+     color: #B88A4A;
+     font-family: 'Playfair Display', serif;
+     font-style: italic;
+     font-size: 1.6rem;
+ }
+
+ .services-main-title {
+     font-family: 'Playfair Display', serif;
+     font-size: 1.9rem;
+     font-weight: 700;
+     color: #222;
+ }
+
+ .service-item {
+     border: 0.5px solid #ececec;
+     /* Light grid lines from image */
+     padding: 40px 40px;
+     transition: all 0.3s ease;
+
+ }
+
+ .service-card-title {
+     font-family: 'Playfair Display', serif;
+     font-weight: 600;
+     font-size: 1.3rem;
+ }
+
+ /* Image Styling */
+ .service-custom-img {
+     width: 60px;
+     /* Aap apne hisaab se adjust kar sakte hain */
+     height: auto;
+     transition: transform 0.3s ease;
+ }
+
+ .service-item:hover .service-custom-img {
+     transform: scale(1.1);
+ }
+
+ .service-item:hover {
+     background-color: #fdfbfa;
+     /* Light tint on hover */
+ }
+
+ /* --- Read More Cross Frame Button (Same as Social Box) --- */
+ .btn-read-more-frame {
+     width: 130px;
+     height: 43px;
+     background-color: transparent;
+     border: 2px solid #B88A4A;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+     transition: 0.3s;
+     cursor: pointer;
+ }
+
+ .btn-read-more-frame .btn-text {
+     background: transparent;
+     border: none;
+     color: #333;
+     font-weight: 600;
+     font-size: 13px;
+     letter-spacing: 1px;
+     z-index: 5;
+ }
+
+ .btn-read-more-frame:hover {
+     background-color: #B88A4A;
+ }
+
+ .btn-read-more-frame:hover .btn-text {
+     color: #fff;
+ }
+
+ /* Cross Corner Lines */
+ .btn-read-more-frame::after {
+     content: "";
+     position: absolute;
+     top: -15px;
+     left: -15px;
+     right: -15px;
+     bottom: -15px;
+     background:
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 10px 0,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 10px) 0,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 10px 100%,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 10px) 100%,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 10px,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 calc(100% - 10px),
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% 10px,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% calc(100% - 10px);
+     background-repeat: no-repeat;
+     background-size: 1.5px 100%, 1.5px 100%, 1.5px 100%, 1.5px 100%, 100% 1.5px, 100% 1.5px, 100% 1.5px, 100% 1.5px;
+     pointer-events: none;
+ }
+
+
+ /*price.........................................................*/
+
+ .pricing-section {
+     width: 100%;
+     background-color: #fff;
+     font-family: 'Poppins', sans-serif;
+ }
+
+ .pricing-container-custom {
+
+     margin: 0 auto;
+     display: flex;
+ }
+
+ /* Left Golden Side */
+ .pricing-left-box {
+     background-color: #B88A4A;
+     flex: 1;
+     min-width: 50%;
+     min-height: 600px;
+ }
+
+ .pricing-italic-subtitle {
+     font-family: 'Playfair Display', serif;
+     font-style: italic;
+     color: #fff;
+     font-size: 1.8rem;
+ }
+
+ .pricing-main-heading {
+     font-family: 'Playfair Display', serif;
+     color: #222;
+     line-height: 1.1;
+ }
+
+ .pricing-bold-title {
+     font-size: 4rem;
+     font-weight: 700;
+     letter-spacing: 5px;
+ }
+
+ .enjoy-discount-box {
+     background-color: #222;
+     color: #fff;
+     width: 270px;
+     padding: 40px;
+ }
+
+ .pricing-desc-text {
+     color: #333;
+     max-width: 400px;
+     font-size: 12px;
+     line-height: 1.8;
+ }
+
+ /* Right Dark List Side */
+ .pricing-right-list {
+     background-color: #1a1a1a;
+     flex: 1;
+     min-width: 50%;
+ }
+
+ .pricing-row-item {
+     background-color: #252525;
+     padding: 10px 20px;
+     transition: 0.3s;
+ }
+
+ .pricing-img-wrapper {
+     margin-right: 20px;
+ }
+
+ .pricing-thumb {
+     width: 60px;
+     height: 60px;
+     object-fit: cover;
+ }
+
+ .pricing-service-title {
+     color: #C5A47E;
+     font-size: 12px;
+     font-weight: 600;
+     letter-spacing: 2px;
+     text-transform: uppercase;
+ }
+
+ .pricing-service-val {
+     color: #fff;
+     font-family: 'Playfair Display', serif;
+     font-size: 1.8rem;
+     font-weight: 700;
+ }
+
+ /* Button Cross Design */
+ .btn-get-off-frame {
+     position: relative;
+     display: inline-block;
+     padding: 5px;
+ }
+
+ .btn-get-off-frame::after {
+     content: "";
+     position: absolute;
+     top: -5px;
+     left: -5px;
+     right: -5px;
+     bottom: -5px;
+     border: 1px solid #222;
+     pointer-events: none;
+     background:
+         linear-gradient(to right, #222 1px, transparent 1px) 8px 0,
+         linear-gradient(to right, #222 1px, transparent 1px) calc(100% - 8px) 0,
+         linear-gradient(to bottom, #222 1px, transparent 1px) 0 8px,
+         linear-gradient(to bottom, #222 1px, transparent 1px) 0 calc(100% - 8px);
+     background-repeat: no-repeat;
+     background-size: 1px 100%, 1px 100%, 100% 1px, 100% 1px;
+ }
+
+ .btn-get-off {
+     background-color: #222;
+     color: #fff;
+     border: none;
+     padding: 12px 30px;
+     font-size: 14px;
+     font-weight: 600;
+ }
+
+ .custom-frame-btn1 {
+     width: 160px;
+     height: 50px;
+     padding: 2px;
+     position: relative;
+     border: 1px solid #B88A4A;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: #1a1a1a;
+ }
+
+ .custom-frame-btn1::before {
+     content: "";
+     position: absolute;
+
+     /* Subtle white inner border */
+     pointer-events: none;
+ }
+
+ /* Corner Cross Lines */
+ .custom-frame-btn1::after {
+     content: "";
+     position: absolute;
+     top: -15px;
+     left: -15px;
+     right: -15px;
+     bottom: -15px;
+     background:
+         linear-gradient(to right, #563302 1.5px, transparent 1.5px) 10px 0,
+         linear-gradient(to right, #563302 1.5px, transparent 1.5px) calc(100% - 10px) 0,
+         linear-gradient(to right, #563302 1.5px, transparent 1.5px) 10px 100%,
+         linear-gradient(to right, #563302 1.5px, transparent 1.5px) calc(100% - 10px) 100%,
+         linear-gradient(to bottom, #563302 1.5px, transparent 1.5px) 0 10px,
+         linear-gradient(to bottom, #563302 1.5px, transparent 1.5px) 0 calc(100% - 10px),
+         linear-gradient(to bottom, #563302 1.5px, transparent 1.5px) 100% 10px,
+         linear-gradient(to bottom, #563302 1.5px, transparent 1.5px) 100% calc(100% - 10px);
+     background-repeat: no-repeat;
+     background-size: 1.5px 100%, 1.5px 100%, 1.5px 100%, 1.5px 100%, 100% 1.5px, 100% 1.5px, 100% 1.5px, 100% 1.5px;
+ }
+
+ /* Responsive */
+ @media (max-width: 992px) {
+     .pricing-container-custom {
+         flex-direction: column;
+     }
+
+     .pricing-left-box,
+     .pricing-right-list {
+         width: 100%;
+         min-width: 100%;
+     }
+ }
+
+
+ /*gellary...................................*/
+ @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+ /* Typography as per style */
+ .gallery-subtitle {
+     font-family: 'Playfair Display', serif;
+     font-style: italic;
+     color: #B88A4A;
+     font-size: 1.5rem;
+ }
+
+ .gallery-main-title {
+     font-family: 'Playfair Display', serif;
+     font-weight: 700;
+     font-size: 3rem;
+     color: #222;
+ }
+
+ /* Gallery Item Styling */
+ .gallery-item-box {
+     position: relative;
+     overflow: hidden;
+     cursor: pointer;
+ }
+
+ /* Responsive Heights (desktop par large side-columns ke equal rakhne ke liye) */
+ .wide-height {
+     height: 400px;
+ }
+
+ .narrow-height {
+     height: 400px;
+ }
+
+ /* Mobile optimization for heights */
+ @media (max-width: 991.98px) {
+
+     .wide-height,
+     .narrow-height {
+         height: 250px;
+     }
+ }
+
+ /* Core Hover Animation from video */
+ .gallery-photo {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.6s ease;
+ }
+
+ .gallery-overlay {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(184, 138, 74, 0.8);
+     /* Golden transparent overlay */
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     opacity: 0;
+     transition: 0.4s ease;
+ }
+
+ .gallery-item-box:hover .gallery-overlay {
+     opacity: 1;
+ }
+
+ .gallery-item-box:hover .gallery-photo {
+     transform: scale(1.1);
+     /* Video wala zoom-in effect */
+ }
+
+ .plus-symbol {
+     color: white;
+     font-size: 4rem;
+     font-weight: 200;
+ }
+
+ /* Lightbox Style (Pop-up like video) */
+ .gallery-lightbox {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.9);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     z-index: 99999;
+ }
+
+ .lightbox-content img {
+     max-width: 90%;
+     max-height: 80vh;
+     border: 5px solid white;
+ }
+
+ .animate-zoomIn {
+     animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+ }
+
+ @keyframes zoomIn {
+     from {
+         transform: scale(0.7);
+         opacity: 0;
+     }
+
+     to {
+         transform: scale(1);
+         opacity: 1;
+     }
+ }
+
+ .close-gallery-btn {
+     position: absolute;
+     top: 20px;
+     right: 30px;
+     background: transparent;
+     border: none;
+     color: white;
+     font-size: 3rem;
+ }
+
+ /*Team..................................................................*/
+
+ .team-subtitle {
+     font-family: 'Playfair Display', serif;
+     font-style: italic;
+     color: #B88A4A;
+ }
+
+ .team-main-title {
+     font-family: 'Playfair Display', serif;
+     font-weight: 700;
+     color: #222;
+ }
+
+ /* Golden Patti (Strip) Design */
+ .team-patti {
+     position: absolute;
+     top: 50%;
+
+     width: 100%;
+     height: 210px;
+     /* Patti ki motai */
+     background-color: #B88A4A;
+     transform: translateY(-50%);
+     z-index: 1;
+ }
+
+ .team-card {
+     position: relative;
+     overflow: hidden;
+     background: #fff;
+ }
+
+ .team-img-container {
+     position: relative;
+     overflow: hidden;
+ }
+
+ .team-photo {
+     width: 100%;
+     height: 450px;
+     object-fit: cover;
+     transition: transform 0.6s ease;
+ }
+
+ .team-card:hover .team-photo {
+     transform: scale(1.1);
+     /* Zoom Animation */
+ }
+
+ /* Info Box */
+ .member-info-box {
+     position: absolute;
+     bottom: 20px;
+     left: 15px;
+     right: 15px;
+     background: rgba(255, 255, 255, 0.9);
+     padding: 20px 10px;
+     text-align: center;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+ }
+
+ .m-role {
+     color: #B88A4A;
+     font-size: 0.9rem;
+     margin: 0;
+ }
+
+ .m-name {
+     font-family: 'Playfair Display', serif;
+     font-weight: 700;
+     margin-bottom: 15px;
+ }
+
+ /* --- Aapka Social Box Code (Fixed) --- */
+ .social-box {
+     width: 35px;
+     height: 35px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: #000;
+     cursor: pointer;
+     position: relative;
+     border: 1px solid #B88A4A;
+     background-color: transparent;
+     transition: 0.3s;
+     margin: 0 12px;
+     /* Gap settings */
+ }
+
+ .social-box::before {
+     content: "";
+     position: absolute;
+     top: 4px;
+     left: 4px;
+     right: 4px;
+     bottom: 4px;
+     border: 1px solid #B88A4A;
+ }
+
+ .social-box::after {
+     content: "";
+     position: absolute;
+     top: -8px;
+     left: -8px;
+     right: -8px;
+     bottom: -8px;
+     background:
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 8px 0,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 8px) 0,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 8px 100%,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 8px) 100%,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 8px,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 calc(100% - 8px),
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% 8px,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% calc(100% - 8px);
+     background-repeat: no-repeat;
+     background-size: 1.5px 100%, 1.5px 100%, 1.5px 100%, 1.5px 100%, 100% 1.5px, 100% 1.5px, 100% 1.5px, 100% 1.5px;
+ }
+
+ .social-box:hover {
+     background-color: #B88A4A;
+ }
+
+ .social-box:hover i {
+     color: #fff;
+ }
+
+
+ /*testimonial.....................................................................*/
+ /* Fonts and Colors */
+
+ .testimonial-section {
+     background-color: #ffffff;
+ }
+
+ .testi-subtitle {
+     font-family: 'Playfair Display', serif;
+     font-style: italic;
+     color: #B88A4A;
+     font-size: 1.5rem;
+ }
+
+ .testi-title {
+     font-family: 'Playfair Display', serif;
+     font-weight: 700;
+     font-size: 3rem;
+     color: #222;
+ }
+
+ /* --- Base Card (Gray Side Cards) --- */
+ .testi-card {
+     background-color: #F8F9FA;
+     /* Light Gray Background */
+     padding: 60px 40px;
+     text-align: center;
+     position: relative;
+     z-index: 1;
+     transition: 0.6s all ease;
+     overflow: hidden;
+ }
+
+ /* --- CENTER CARD (GOLDEN COLOR) --- */
+ .swiper-slide-active .testi-card {
+     background-color: #B88A4A !important;
+     color: #ffffff !important;
+ }
+
+ .swiper-slide-active .testi-card .testi-text,
+ .swiper-slide-active .testi-card .client-name,
+ .swiper-slide-active .testi-card .quote-icon-top,
+ .swiper-slide-active .testi-card .quote-icon-bottom {
+     color: #ffffff !important;
+ }
+
+ .swiper-slide-active .testi-card .client-prof {
+     color: rgba(255, 255, 255, 0.8) !important;
+ }
+
+ /* Quote Icons */
+ .quote-icon-top {
+     font-size: 2.5rem;
+     color: #333;
+     margin-bottom: 20px;
+ }
+
+ .testi-text {
+     font-size: 1.05rem;
+     line-height: 1.8;
+     margin-bottom: 30px;
+ }
+
+ /* Client Image Frame with Double Border */
+ .client-img-frame {
+     width: 90px;
+     height: 90px;
+     margin: 0 auto 15px;
+     padding: 5px;
+     border: 1px solid #B88A4A;
+     position: relative;
+ }
+
+ /* Inner golden frame */
+ .client-img-frame::after {
+     content: "";
+     position: absolute;
+     top: -6px;
+     left: -6px;
+     right: -6px;
+     bottom: -6px;
+     border: 1px solid #B88A4A;
+     opacity: 0.5;
+ }
+
+ .swiper-slide-active .client-img-frame,
+ .swiper-slide-active .client-img-frame::after {
+     border-color: #ffffff !important;
+ }
+
+ .client-img-frame img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+ }
+
+ .client-name {
+     font-family: 'Playfair Display', serif;
+     font-weight: 700;
+     margin-bottom: 5px;
+ }
+
+ .client-prof {
+     color: #B88A4A;
+     text-transform: uppercase;
+     font-size: 0.85rem;
+     letter-spacing: 1px;
+ }
+
+ /* Large Background Quote */
+ .quote-icon-bottom {
+     position: absolute;
+     right: -10px;
+     bottom: -10px;
+     font-size: 10rem;
+     color: rgba(0, 0, 0, 0.05);
+     z-index: -1;
+ }
+
+ .swiper-slide-active .testi-card .quote-icon-bottom {
+     color: rgba(255, 255, 255, 0.1) !important;
+ }
+
+ /* --- Square Navigation Arrows (As per screenshot) --- */
+ .arrow-btn {
+     width: 45px;
+     height: 45px;
+     background: transparent;
+     border: 1px solid #222;
+     /* Black square border */
+     color: #222;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: 0.3s;
+     font-size: 1.1rem;
+ }
+
+ .arrow-btn:hover {
+     background-color: #B88A4A;
+     border-color: #B88A4A;
+     color: #fff;
+ }
+
+ /*contact.....................................................................................*/
+
+ .contact-section {
+     background-color: #ffffff;
+     font-family: 'Poppins', sans-serif;
+ }
+
+ .contact-subtitle {
+     font-family: 'Playfair Display', serif;
+     font-style: italic;
+     color: #B88A4A;
+     font-size: 1.5rem;
+ }
+
+ .contact-main-title {
+     font-family: 'Playfair Display', serif;
+     font-weight: 700;
+     color: #222;
+     font-size: 2.8rem;
+ }
+
+ .contact-notice {
+     color: #666;
+     font-size: 0.95rem;
+     line-height: 1.6;
+ }
+
+ .download-link {
+     color: #B88A4A;
+     text-decoration: none;
+     font-weight: 500;
+ }
+
+ /* Form Inputs Styling */
+ .custom-input {
+     border: 1px solid #ced4da;
+     border-radius: 0;
+     /* Square inputs as per UI */
+     padding: 15px;
+     font-size: 0.9rem;
+     color: #666;
+ }
+
+ .custom-input:focus {
+     border-color: #B88A4A;
+     box-shadow: none;
+     outline: none;
+ }
+
+ /* --- SEND MESSAGE BUTTON DESIGN --- */
+ .send-message-btn {
+     width: 100%;
+     padding: 18px;
+     background-color: #B88A4A;
+     /* Golden Background */
+     color: #fff;
+     font-weight: 600;
+     border: none;
+     letter-spacing: 2px;
+     position: relative;
+     cursor: pointer;
+     transition: 0.3s;
+     font-size: 1rem;
+ }
+
+ /* Outer Corner Lines (Cross effect) */
+ .send-message-btn::before {
+     content: "";
+     position: absolute;
+     top: -12px;
+     left: -12px;
+     right: -12px;
+     bottom: -12px;
+     background:
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 8px 0,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 8px) 0,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 8px 100%,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 8px) 100%,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 8px,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 calc(100% - 8px),
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% 8px,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% calc(100% - 8px);
+     background-repeat: no-repeat;
+     background-size: 1.5px 100%, 1.5px 100%, 1.5px 100%, 1.5px 100%, 100% 1.5px, 100% 1.5px, 100% 1.5px, 100% 1.5px;
+     pointer-events: none;
+ }
+
+ /* Inner border effect */
+ .send-message-btn::after {
+     content: "";
+     position: absolute;
+     top: 3px;
+     left: 3px;
+     right: 3px;
+     bottom: 3px;
+     border: 1.5px solid #B88A4A
+         /* Dark thin inner border */
+     ;
+     opacity: 0.2;
+     pointer-events: none;
+ }
+
+ /*footer..........................................................................*/
+
+ /* --- Footer Social Box (Same as your UI) --- */
+ .social-box {
+     width: 40px;
+     height: 40px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     color: #B88A4A;
+     /* Default Icon Color */
+     cursor: pointer;
+     position: relative;
+     /* 1. Main Square Border */
+     border: 1px solid #B88A4A;
+     background-color: transparent;
+     transition: 0.3s;
+     margin: 10px;
+ }
+
+ /* Icons styling inside box */
+ .social-box a {
+     color: inherit;
+     text-decoration: none;
+     z-index: 2;
+ }
+
+ /* 2. Inner Border (Double line effect) */
+ .social-box::before {
+     content: "";
+     position: absolute;
+     top: 4px;
+     left: 4px;
+     right: 4px;
+     bottom: 4px;
+     border: 1px solid #B88A4A;
+     transition: 0.3s;
+ }
+
+ /* 3. The "Cross" Corners (Extended Lines) */
+ .social-box::after {
+     content: "";
+     position: absolute;
+     top: -10px;
+     left: -10px;
+     right: -10px;
+     bottom: -10px;
+     background:
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 10px 0,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 10px) 0,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 10px 100%,
+         linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 10px) 100%,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 10px,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 calc(100% - 10px),
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% 10px,
+         linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% calc(100% - 10px);
+     background-repeat: no-repeat;
+     background-size: 1.5px 100%, 1.5px 100%, 1.5px 100%, 1.5px 100%, 100% 1.5px, 100% 1.5px, 100% 1.5px, 100% 1.5px;
+     transition: 0.3s;
+ }
+
+ /* --- Hover Effects --- */
+ .social-box:hover {
+     background-color: #B88A4A;
+     color: #fff !important;
+     /* Icon white ho jayega */
+ }
+
+
+ /* Baki Footer design (Same as before) */
+ .footer-section {
+     background-color: #1a1a1a;
+     color: #999;
+     padding-top: 50px;
+ }
+
+ .footer-title {
+     font-family: 'Playfair Display', serif;
+     color: #B88A4A;
+     font-size: 1.5rem;
+     margin-bottom: 25px;
+ }
+
+ .footer-links a {
+     color: #999;
+     text-decoration: none;
+     margin-bottom: 12px;
+     display: block;
+     transition: 0.3s;
+ }
+
+ .footer-links a:hover {
+     color: #B88A4A;
+     padding-left: 10px;
+ }
+
+ .newsletter-input {
+     background: #333 !important;
+     border: none !important;
+     color: #fff !important;
+     padding: 12px;
+ }
+
+ .btn-newsletter {
+     position: absolute;
+     right: 10px;
+     top: 50%;
+     transform: translateY(-50%);
+     background: none;
+     border: none;
+     color: #B88A4A;
+ }
+
+ .footer-section {
+     background-color: #1a1a1a;
+     /* Dark gray/black background */
+     color: #999;
+     font-family: 'Poppins', sans-serif;
+     padding-top: 50px;
+ }
+
+ .footer-title {
+     font-family: 'Playfair Display', serif;
+     color: #B88A4A;
+     font-size: 1.5rem;
+ }
+
+ .footer-desc {
+     line-height: 1.6;
+     font-size: 0.95rem;
+ }
+
+ .contact-info p i {
+     color: #B88A4A;
+ }
+
+ .gold-text {
+     color: #B88A4A;
+ }
+
+ /* --- Social Icons with Cross Design --- */
+
+ /* Corner Cross lines effect */
+
+
+
+
+ /* Footer Links Styling */
+ .footer-links a {
+     color: #999;
+     text-decoration: none;
+     margin-bottom: 12px;
+     font-size: 0.95rem;
+     transition: 0.3s;
+ }
+
+ .footer-links a i {
+     font-size: 0.8rem;
+ }
+
+ .footer-links a:hover {
+     color: #B88A4A;
+     padding-left: 10px;
+ }
+
+ /* Newsletter Styles */
+ .newsletter-input {
+     background: #333 !important;
+     border: none !important;
+     border-radius: 0;
+     padding: 15px;
+     color: #fff !important;
+ }
+
+ .btn-newsletter {
+     position: absolute;
+     top: 5px;
+     right: 5px;
+     bottom: 5px;
+     background: none;
+     border: none;
+     color: #B88A4A;
+     font-size: 1.2rem;
+     cursor: pointer;
+ }
+
+ /* Back to Top / Corner lines for copyright */
+ .copyright-section {
+     background-color: #111;
+ }
+ .footer-section {
+    background-color: #1a1a1a;
+    color: #999;
+    padding-top: 50px;
+}
+
+/* Custom vertical line for desktop */
+@media (min-width: 992px) {
+    .border-start-custom {
+        border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+}
+
+.footer-title {
+    font-family: 'Playfair Display', serif;
+    color: #B88A4A;
+    font-size: 1.5rem;
+}
+
+.footer-links a {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: #B88A4A;
+    padding-left: 5px;
+}
+
+/* Social Box - Your Custom Design */
+.social-box {
+    width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid #B88A4A;
+    position: relative;
+    transition: 0.3s;
+}
+
+.social-box a { color: #B88A4A; }
+
+.social-box::before {
+    content: ""; position: absolute;
+    top: 4px; left: 4px; right: 4px; bottom: 4px;
+    border: 1px solid #B88A4A;
+}
+
+.social-box::after {
+    content: ""; position: absolute;
+    top: -8px; left: -8px; right: -8px; bottom: -8px;
+    background:
+        linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 8px 0,
+        linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 8px) 0,
+        linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) 8px 100%,
+        linear-gradient(to right, #B88A4A 1.5px, transparent 1.5px) calc(100% - 8px) 100%,
+        linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 8px,
+        linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 0 calc(100% - 8px),
+        linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% 8px,
+        linear-gradient(to bottom, #B88A4A 1.5px, transparent 1.5px) 100% calc(100% - 8px);
+    background-repeat: no-repeat;
+    background-size: 1.5px 100%, 1.5px 100%, 1.5px 100%, 1.5px 100%, 100% 1.5px, 100% 1.5px, 100% 1.5px, 100% 1.5px;
+}
+
+.social-box:hover { background-color: #B88A4A; }
+.social-box:hover a { color: #fff; }
+
+/* Newsletter Box Styling */
+.newsletter-input {
+    background-color: #2a2a2a !important;
+    border: none !important;
+    border-radius: 0;
+    padding: 15px;
+    color: #fff !important;
+}
+
+.btn-newsletter {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #B88A4A;
+    font-size: 1.2rem;
+}
+
+.gold-text { color: #B88A4A; }
+/*ourteam.......................................................*/
+/* Team Section Styles */
+.team-social-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #B88A4A;
+    color: #B88A4A;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: 0.3s all ease;
+}
+
+.team-social-icon:hover {
+    background-color: #B88A4A;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Description text ka layout */
+.card-body p {
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+/*appointment..............................................*/
+/* Default border color change karne ke liye */
+.custom-input {
+    border: 1px solid #B88A4A !important;
+}
+
+/* Jab user click kare (Focus state) tab ke liye */
+.custom-input:focus {
+    border-color: #B88A4A !important;
+    box-shadow: 0 0 0 0.15rem rgba(184, 138, 74, 0.25) !important; /* Halki gold shadow */
+    outline: 0;
+}
+
+/* Dropdown menu ki styling */
+.custom-dropdown-menu {
+    border: 1px solid #B88A4A !important;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Har item ki styling */
+.custom-dropdown-menu .dropdown-item {
+    color: #1a1a1a;
+    transition: all 0.2s;
+}
+
+/* BLUE PATTI KO GOLD SE BADALNE KE LIYE YE ZAROORI HAI */
+.custom-dropdown-menu .dropdown-item:hover, 
+.custom-dropdown-menu .dropdown-item:focus,
+.custom-dropdown-menu .dropdown-item:active {
+    background-color: #B88A4A !important; /* Blue ki jagah Gold */
+    color: white !important; /* Text white ho jayega */
+    outline: none;
+}
+
+/* Button ka arrow hatane ya sahi karne ke liye */
+.dropdown-toggle::after {
+    color: #B88A4A;
+}
