@@ -85,7 +85,7 @@
 // export default Navbar;
 
 import React, { useEffect, useState } from 'react'; // useEffect aur useState add kiya
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaLinkedinIn ,FaUser} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../src/img/logo.png';
 
@@ -212,6 +212,21 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link fw-bold text-dark ps-3 py-2" to="/contact" onClick={() => { scrollToTopManual(); closeMenu(); }}>CONTACT</Link>
+                        </li>
+                        <li className="nav-item ms-lg-3">
+                            <Link 
+                                to="/login" 
+                                className="btn px-4 py-2 fw-bold text-white shadow-sm"
+                                onClick={scrollToTopManual}
+                                style={{ 
+                                    backgroundColor: '#B88A4A', 
+                                    borderRadius: '5px',
+                                    fontSize: '14px',
+                                    border: 'none'
+                                }}
+                            >
+                                <FaUser className="me-2" /> LOGIN
+                            </Link>
                         </li>
                     </ul>
                 </div>
