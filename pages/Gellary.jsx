@@ -91,3 +91,101 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
+// import React, { useState, useEffect } from 'react';
+// import { getAllMediaService } from '../src/API/service.js'; // Service import karein
+
+// const Gallery = () => {
+//     const [selectedImg, setSelectedImg] = useState(null);
+//     const [mediaItems, setMediaItems] = useState([]);
+//     const [loading, setLoading] = useState(true);
+
+//     // --- API se data lana ---
+//     useEffect(() => {
+//         const fetchGallery = async () => {
+//             try {
+//                 const res = await getAllMediaService();
+//                 if (res.success) {
+//                     setMediaItems(res.data);
+//                 }
+//             } catch (err) {
+//                 console.error("Gallery fetch error:", err);
+//             } finally {
+//                 setLoading(false);
+//             }
+//         };
+//         fetchGallery();
+//     }, []);
+
+//     const openLightbox = (imgSrc) => {
+//         setSelectedImg(imgSrc);
+//     };
+
+//     if (loading) return <div className="text-center py-5">Loading Gallery...</div>;
+
+//     return (
+//         <section className="gallery-section py-5">
+//             <div className="container py-lg-5">
+//                 <div className="text-center mb-5">
+//                     <h5 className="gallery-subtitle">Gallery</h5>
+//                     <h1 className="gallery-main-title">Explore Our Gallery</h1>
+//                 </div>
+
+//                 <div className="row g-0">
+//                     {mediaItems.map((item, index) => {
+//                         // Logic for layout: index 0 and 5 are big (col-lg-6), others are small (col-lg-3)
+//                         const isBig = index === 0 || index === 5 || (index > 5 && index % 6 === 0);
+//                         const colClass = isBig ? "col-lg-6 col-md-12" : "col-lg-3 col-md-6";
+//                         const boxClass = isBig ? "wide-height" : "narrow-height";
+
+//                         return (
+//                             <div className={colClass} key={item._id}>
+//                                 <div className={`gallery-item-box ${boxClass}`} 
+//                                      onClick={() => item.mediaType === 'photo' && openLightbox(`http://localhost:8000/uploads/${item.fileUrl}`)}>
+                                    
+//                                     {item.mediaType === 'photo' ? (
+//                                         <img 
+//                                             src={`http://localhost:8000/uploads/${item.fileUrl}`} 
+//                                             alt={item.title} 
+//                                             className="img-fluid gallery-photo" 
+//                                         />
+//                                     ) : (
+//                                         /* Video Support: Agar YouTube link hai toh thumbnail dikhayega */
+//                                         <div className="video-container" style={{ width: '100%', height: '100%', background: '#000' }}>
+//                                             <iframe
+//                                                 width="100%"
+//                                                 height="100%"
+//                                                 src={item.videoUrl.replace("watch?v=", "embed/")}
+//                                                 title={item.title}
+//                                                 frameBorder="0"
+//                                                 allowFullScreen
+//                                             ></iframe>
+//                                         </div>
+//                                     )}
+
+//                                     {item.mediaType === 'photo' && (
+//                                         <div className="gallery-overlay">
+//                                             <span className="plus-symbol">+</span>
+//                                         </div>
+//                                     )}
+//                                 </div>
+//                             </div>
+//                         );
+//                     })}
+//                 </div>
+//             </div>
+
+//             {/* Custom Lightbox Pop-up */}
+//             {selectedImg && (
+//                 <div className="gallery-lightbox" onClick={() => setSelectedImg(null)}>
+//                     <div className="lightbox-content animate-zoomIn">
+//                         <img src={selectedImg} alt="Preview" />
+//                         <button className="close-gallery-btn">×</button>
+//                     </div>
+//                 </div>
+//             )}
+//         </section>
+//     );
+// };
+
+// export default Gallery;
