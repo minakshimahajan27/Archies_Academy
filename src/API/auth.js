@@ -1,6 +1,6 @@
 
 
-export const API_BASE_URL = "[https://archies-academy.onrender.com/api](https://archies-academy.onrender.com/api)"; 
+export const API_BASE_URL = "[https://archies-academy.onrender.com/api](https://archies-academy.onrender.com/api)";
 
 export const ADMIN_LOGIN = `${API_BASE_URL}/admin/login`;
 
