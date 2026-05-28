@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 // Aapki image imports (src/img folder se)
-import p1 from '../src/img/img2.jpg';
-import p2 from '../src/img/img3.jpg';
-import p3 from '../src/img/img6.jpg';
-import p4 from '../src/img/img4.jpg';
-import p5 from '../src/img/img6.jpg';
-import p6 from '../src/img/img5.jpg';
+import p1 from '../img/img2.jpg';
+import p2 from '../img/img3.jpg';
+import p3 from '../img/img6.jpg';
+import p4 from '../img/img4.jpg';
+import p5 from '../img/img6.jpg';
+import p6 from '../img/img5.jpg';
 
 const Gallery = () => {
     const [selectedImg, setSelectedImg] = useState(null);

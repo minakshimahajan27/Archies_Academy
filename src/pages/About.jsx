@@ -248,7 +248,7 @@
 import React from 'react';
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import abc from '../src/img/page-header.jpg'; // Aapki image
+import abc from '../img/page-header.jpg'; // Aapki image
 import Footer from '../components/Footer';
 import Team from './Team';
 

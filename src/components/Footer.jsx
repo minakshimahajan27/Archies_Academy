@@ -92,7 +92,7 @@
 
 import React from 'react';
 import { FaUser } from 'react-icons/fa'; // Login icon ke liye
-import logoImg from '../src/img/logo.png'; 
+import logoImg from '../img/logo.png'; 
 
 const Footer = () => {
   return (

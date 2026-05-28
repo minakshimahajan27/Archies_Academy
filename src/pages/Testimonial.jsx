@@ -8,10 +8,10 @@ import 'swiper/css/navigation';
 
 
 // Team images (aapne pehle jo use ki thi)
-import p1 from '../src/img/img2.jpg';
-import p2 from '../src/img/img3.jpg';
-import p3 from '../src/img/img4.jpg';
-import p4 from '../src/img/img4.jpg';
+import p1 from '../img/img2.jpg';
+import p2 from '../img/img3.jpg';
+import p3 from '../img/img4.jpg';
+import p4 from '../img/img4.jpg';
 
 const Testimonial = () => {
   const testimonials = [

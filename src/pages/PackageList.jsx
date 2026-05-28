@@ -170,7 +170,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { FaEdit, FaTrash, FaSearch } from 'react-icons/fa';
-import { getAllPackagesService, deletePackageService, updatePackageService } from '../src/API/service.js'; 
+import { getAllPackagesService, deletePackageService, updatePackageService } from '../API/service.js'; 
 
 const PackageList = () => {
     const [packages, setPackages] = useState([]);

@@ -73,7 +73,7 @@
 // export default Contact;
 import React, { useState } from 'react'; // useState add kiya
 import { Link } from 'react-router-dom';
-import abc from '../src/img/page-header.jpg';
+import abc from '../img/page-header.jpg';
 import Footer from '../components/Footer';
 
 const Contact = () => {

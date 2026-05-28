@@ -1,12 +1,12 @@
 import React from 'react';
 
 // Images ko import karein (Path check kar lein)
-import p1 from '../src/img/price-1.jpg';
-import p2 from '../src/img/price-2.jpg';
-import p3 from '../src/img/price-3.jpg';
-import p4 from '../src/img/price-4.jpg';
-import p5 from '../src/img/price-5.jpg';
-import p6 from '../src/img/price-6.jpg';
+import p1 from '../img/price-1.jpg';
+import p2 from '../img/price-2.jpg';
+import p3 from '../img/price-3.jpg';
+import p4 from '../img/price-4.jpg';
+import p5 from '../img/price-5.jpg';
+import p6 from '../img/price-6.jpg';
 
 const pricingList = [
   { name: "Haircut", price: "$49", img: p1 },

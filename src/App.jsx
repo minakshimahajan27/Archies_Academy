@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import ScrollToTop from '../components/ScrollToTop';
+import ScrollToTop from '../src/components/ScrollToTop';
 import './App.css'
 
-import AppRouter from '../pages/Route'
+import AppRouter from '../src/pages/Route'
 
 function App() {
   return (

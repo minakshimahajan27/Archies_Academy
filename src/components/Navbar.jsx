@@ -87,7 +87,7 @@
 import React, { useEffect, useState } from 'react'; // useEffect aur useState add kiya
 import { FaFacebookF, FaInstagram, FaLinkedinIn ,FaUser} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import logo from '../src/img/logo.png';
+import logo from '../img/logo.png';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);

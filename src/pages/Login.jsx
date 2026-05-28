@@ -162,7 +162,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaLock, FaUserShield } from 'react-icons/fa';
-import { adminLogin } from '../src/API/service.js'; // Apni service import karein
+import { adminLogin } from '../API/service.js'; // Apni service import karein
 import Swal from 'sweetalert2';
 
 const AdminLogin = () => {

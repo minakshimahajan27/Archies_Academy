@@ -2,12 +2,12 @@ import React from 'react';
 
 
 // Images import karein
-import haircutImg from '../src/img/haircut.png';
-import makeupImg from '../src/img/makeup.png';
-import manicureImg from '../src/img/manicure.png';
-import pedicureImg from '../src/img/pedicure.png';
-import massageImg from '../src/img/massage.png';
-import skinCareImg from '../src/img/skin-care.png';
+import haircutImg from '../img/haircut.png';
+import makeupImg from '../img/makeup.png';
+import manicureImg from '../img/manicure.png';
+import pedicureImg from '../img/pedicure.png';
+import massageImg from '../img/massage.png';
+import skinCareImg from '../img/skin-care.png';
 
 const services = [
   // Yahan "haircut.png" ki jagah haircutImg (variable) likhein

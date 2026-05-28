@@ -161,7 +161,7 @@
 
 import React, { useState } from 'react';
 import { FaCloudUploadAlt, FaSave } from 'react-icons/fa';
-import { addPackageService } from '../src/API/service.js'; 
+import { addPackageService } from '../API/service.js'; 
 import Swal from 'sweetalert2'; 
 
 const AddPackage = () => {

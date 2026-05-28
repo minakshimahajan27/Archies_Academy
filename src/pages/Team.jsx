@@ -53,10 +53,10 @@
 // export default Team;
 import React from 'react';
 
-import p1 from '../src/img/img2.jpg';
-import p2 from '../src/img/img3.jpg';
-import p3 from '../src/img/img4.jpg';
-import p4 from '../src/img/img6.jpg';
+import p1 from '../img/img2.jpg';
+import p2 from '../img/img3.jpg';
+import p3 from '../img/img4.jpg';
+import p4 from '../img/img6.jpg';
 
 const Team = () => {
   const teamData = [
