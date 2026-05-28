@@ -2,27 +2,27 @@ import React from 'react';
 // Yahan hum 'BrowserRouter as Router' use kar rahe hain
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Home from './Home';
-import Service from './Service';
-import About from './About';
-import Price from './Price';
-import Contact from './Contact';
-import Page from './Page';
+import Home from '../pages/Home';
+import Service from '../pages/Service';
+import About from '../pages/About';
+import Price from '../pages/Price';
+import Contact from '../pages/Contact';
+import Page from '../pages/Page';
 import ScrollToTop from '../components/ScrollToTop';
-import Gellary from './Gellary';
+import Gellary from '../pages/Gellary';
 
 
-import OnlineClass from './OnlineClass';
-import OurTeam from './OurTeam ';
-import Appointment from './Appointment';
-import Login from './Login';
-import Dashboard from './Dashboard';
-import AddPackage from './AddPackage';
-import PackageList from './PackageList';
-import AddMember from './AddMember';
-import MemberList from './MemberList';
-import AddClass from './AddClass';
-import ClassList from './ClassList';
+import OnlineClass from '../pages/OnlineClass';
+import OurTeam from '../pages/OurTeam ';
+import Appointment from '../pages/Appointment';
+import Login from '../pages/Login';
+import Dashboard from '../pages/Dashboard';
+import AddPackage from '../pages/AddPackage';
+import PackageList from '../pages/PackageList';
+import AddMember from '../pages/AddMember';
+import MemberList from '../pages/MemberList';
+import AddClass from '../pages/AddClass';
+import ClassList from '../pages/ClassList';
 
 // Function ka naam 'Router' se badal kar 'AppRouter' kar diya hai
 export default function AppRouter() {
