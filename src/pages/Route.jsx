@@ -13,7 +13,7 @@ import Gellary from '../pages/Gellary';
 
 
 import OnlineClass from '../pages/OnlineClass';
-import OurTeam from '../pages/OurTeam ';
+import OurTeam from '../pages/OurTeam';
 import Appointment from '../pages/Appointment';
 import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
