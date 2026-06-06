@@ -23,6 +23,7 @@ import AddMember from '../pages/AddMember';
 import MemberList from '../pages/MemberList';
 import AddClass from '../pages/AddClass';
 import ClassList from '../pages/ClassList';
+import FAQ from './FAQ';
 
 // Function ka naam 'Router' se badal kar 'AppRouter' kar diya hai
 export default function AppRouter() {
@@ -49,6 +50,7 @@ export default function AppRouter() {
         <Route path="/memberlist" element={<MemberList />} />
         <Route path="/addclass" element={<AddClass />} />
         <Route path="/classlist" element={<ClassList />} />
+         <Route path="/faq" element={<FAQ />} />
       </Routes>
     </Router>
   );

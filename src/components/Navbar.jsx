@@ -692,12 +692,9 @@ const Navbar = () => {
                 background-color: #B88A4A;
                }
                .dropdown-item{
-               font-size:18px;
+               font-size:17px;
                }
 
-{/* .navbar-toggler ::after{
-               border: none;
-               } */}
 
                .navbar-toggler,
                 .navbar-toggler:focus,
@@ -729,6 +726,9 @@ const Navbar = () => {
                     height: 100%;
                     border-right: 3px solid #fff3d1;
                     pointer-events: none;
+                }
+                .nav-item:hover{
+                color :#B88A4A
                 }
 
                 /* Responsive viewports container logic without changing typography */
@@ -827,17 +827,17 @@ const Navbar = () => {
                             {/* Dropdown Menu Items */}
                             <ul className="dropdown-menu border-0 mt-2 p-2" aria-labelledby="navbarDropdown" style={dropdownMenuStyle}>
                                 <li>
-                                    <Link className="dropdown-item fw-bold text-dark rounded-3" to="/gallery" onClick={() => { scrollToTopManual(); closeMenu(); }}>
+                                    <Link className="dropdown-item fw-bold text-dark " to="/gallery"  onClick={() => { scrollToTopManual(); closeMenu(); }}>
                                         GALLERY
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="dropdown-item fw-bold text-dark rounded-3" to="/ourTeam" onClick={() => { scrollToTopManual(); closeMenu(); }}>
+                                    <Link className="dropdown-item fw-bold text-dark " to="/ourTeam" onClick={() => { scrollToTopManual(); closeMenu(); }}>
                                         OUR TEAM
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="dropdown-item fw-bold text-dark rounded-3" to="/faq" onClick={() => { scrollToTopManual(); closeMenu(); }}>
+                                    <Link className="dropdown-item fw-bold text-dark " to="/faq" onClick={() => { scrollToTopManual(); closeMenu(); }}>
                                         FAQ
                                     </Link>
                                 </li>
