@@ -15,11 +15,55 @@ import p4 from '../img/img4.jpg';
 
 const Testimonial = () => {
   const testimonials = [
-    { id: 1, name: "Lily Taylor", profession: "Profession", img: p1 },
-    { id: 2, name: "Ava Brown", profession: "Profession", img: p2 },
-    { id: 3, name: "Amelia Jones", profession: "Profession", img: p3 },
-    { id: 4, name: "Olivia Smith", profession: "Profession", img: p4 },
-  ];
+    {
+      id: 1,
+      name: "Priya Sharma",
+      profession: "Bridal Makeup Client",
+      img: p1,
+      review:
+        "Amazing experience! My bridal makeup looked flawless and lasted throughout the event. Highly recommended for every bride."
+    },
+    {
+      id: 2,
+      name: "Sneha Patil",
+      profession: "Beauty Academy Student",
+      img: p2,
+      review:
+        "The training was excellent with hands-on practice. The trainers were supportive and helped me build confidence in makeup artistry."
+    },
+    {
+      id: 3,
+      name: "Pooja Verma",
+      profession: "Salon Client",
+      img: p3,
+      review:
+        "Professional staff, hygienic environment, and premium products. I always leave feeling refreshed and satisfied."
+    },
+    {
+      id: 4,
+      name: "Anjali Deshmukh",
+      profession: "Professional Makeup Course Student",
+      img: p4,
+      review:
+        "One of the best beauty academies. The practical sessions and expert guidance helped me start my career successfully."
+    },
+    {
+      id: 5,
+      name: "Kavita Joshi",
+      profession: "Hair Styling Client",
+      img: p1,
+      review:
+        "I loved my new hairstyle and the overall experience. The team was professional, attentive, and delivered exactly the look I wanted."
+    },
+    {
+      id: 6,
+      name: "Meera Patil",
+      profession: "Beauty Service Client",
+      img: p2,
+      review:
+        "Excellent service, friendly staff, and a relaxing atmosphere. Every visit is a wonderful experience, and I always leave feeling confident and refreshed."
+    }
+  ]
 
   return (
     <section className="testimonial-section ">
@@ -49,8 +93,7 @@ const Testimonial = () => {
               <div className="testi-card">
                 <i className="fa fa-quote-left quote-icon-top"></i>
                 <p className="testi-text">
-                  Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. 
-                  Clita erat ipsum et lorem et sit.
+                  {item.review}
                 </p>
                 <div className="client-meta">
                   <div className="client-img-frame">
