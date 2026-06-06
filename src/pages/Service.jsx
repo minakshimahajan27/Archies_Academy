@@ -116,9 +116,15 @@ Your beauty is our identity.
       <section className="py-5 bg-white">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-6 text-center">
-              <img src={service} className="img-fluid rounded-circle shadow-lg" style={{ width: '450px', height: '450px', objectFit: 'cover' }} alt="Salon Interior" />
-            </div>
+           <div className="col-lg-6 text-center">
+  <div className="salon-image-wrapper">
+    <img
+      src={service}
+      className="salon-image"
+      alt="Salon Interior"
+    />
+  </div>
+</div>
             <div className="col-lg-6 ps-lg-5 mt-4 mt-lg-0">
               <h5 className="text-uppercase all-subtitle fs-5" style={{ color: '#B88A4A' }}>Why Visit Us?</h5>
               <h2 className="all-main-title mb-4">Experience the Art of Grooming</h2>
