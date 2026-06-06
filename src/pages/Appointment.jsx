@@ -204,7 +204,7 @@ export default function Appointment() {
             phone: formData.phone,
             service: formData.service,
             date: formData.date,
-            to_email: 'minakshi27mahajan@gmail.com', // Jaha aapko email chahiye
+            to_email: 'goldenlooksparlour@gmail.com', // Jaha aapko email chahiye
         };
 
         emailjs.send(serviceID, templateID, emailData, publicKey)
@@ -216,7 +216,7 @@ export default function Appointment() {
             });
 
         // --- 2. WHATSAPP LOGIC ---
-        const ownerNumber = "916269961137";
+        const ownerNumber = "+919422577198";
         const message = `*--- NEW APPOINTMENT ---*%0A%0A` +
             `Name: ${formData.name}%0A` +
             `Phone: ${formData.phone}%0A` +

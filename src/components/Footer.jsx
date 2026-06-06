@@ -97,7 +97,7 @@ import logoImg from '../img/logo.png';
 const Footer = () => {
   return (
     <footer className="footer-section">
-      <div className="container py-5">
+      <div className="container ">
         <div className="row g-0"> 
           
           {/* --- LEFT PART --- */}
@@ -106,19 +106,19 @@ const Footer = () => {
               <img src={logoImg} alt="Salone Logo" className="img-fluid" style={{ maxWidth: '150px' }} />
             </div>
             <p className="footer-desc mb-4">
-              Aliquyam sed elitr elitr erat sed diam ipsum eirmod eos lorem nonumy. 
-              Tempor sea ipsum diam sed clita dolore eos dolores magna erat dolore sed stet justo et dolor.
+             Archana Beauty Academy is dedicated to providing professional beauty, makeup, hair styling, and skincare training. Our mission is to empower students with industry-leading skills, hands-on experience, and expert guidance to build successful careers in the beauty industry.
             </p>
             <div className="contact-info mb-4">
-              <p><i className="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-              <p><i className="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-              <p><i className="fa fa-envelope me-3"></i>info@example.com</p>
+              <p><i className="fa fa-map-marker-alt me-3"></i>Natwar Multiplex, Kirti Mall, M. G. Road,
+Jalgaon 425001</p>
+              <p><i className="fa fa-phone-alt me-3"></i>+919422577198</p>
+              <p><i className="fa fa-envelope me-3"></i>goldenlooksparlour@gmail.com</p>
             </div>
             <div className="d-flex pt-2 gap-2">
               <div className="social-box"><a href="#"><i className="fab fa-twitter"></i></a></div>
-              <div className="social-box"><a href="#"><i className="fab fa-facebook-f"></i></a></div>
+              <div className="social-box"><a href="https://www.facebook.com/archana.mali"><i className="fab fa-facebook-f"></i></a></div>
               <div className="social-box"><a href="#"><i className="fab fa-linkedin-in"></i></a></div>
-              <div className="social-box"><a href="#"><i className="fab fa-instagram"></i></a></div>
+              <div className="social-box"><a href="https://www.instagram.com/archies.jalgaon/"><i className="fab fa-instagram"></i></a></div>
             </div>
           </div>
 
@@ -132,10 +132,10 @@ const Footer = () => {
                 <div className="footer-links">
                   {/* --- LOGIN LINK ADDED HERE --- */}
                    <a href="/login"><i className="fa fa-chevron-right me-2"></i>Login</a>
-                  <a href="#"><i className="fa fa-chevron-right me-2"></i>About Us</a>
-                  <a href="#"><i className="fa fa-chevron-right me-2"></i>Contact Us</a>
-                  <a href="#"><i className="fa fa-chevron-right me-2"></i>Our Services</a>
-                  <a href="#"><i className="fa fa-chevron-right me-2"></i>Terms & Condition</a>
+                  <a href="/about"><i className="fa fa-chevron-right me-2"></i>About Us</a>
+                  <a href="/contact"><i className="fa fa-chevron-right me-2"></i>Contact Us</a>
+                  <a href="/service"><i className="fa fa-chevron-right me-2"></i>Our Services</a>
+                  <a href="/term"><i className="fa fa-chevron-right me-2"></i>Terms & Condition</a>
                 </div>
               </div>
               
@@ -143,10 +143,10 @@ const Footer = () => {
               <div className="col-md-6 mb-5">
                 <h4 className="footer-title mb-4">Popular Links</h4>
                 <div className="footer-links">
-                  <a href="#"><i className="fa fa-chevron-right me-2"></i>About Us</a>
-                  <a href="#"><i className="fa fa-chevron-right me-2"></i>Contact Us</a>
-                  <a href="#"><i className="fa fa-chevron-right me-2"></i>Our Services</a>
-                  <a href="#"><i className="fa fa-chevron-right me-2"></i>Terms & Condition</a>
+                  <a href="about"><i className="fa fa-chevron-right me-2"></i>About Us</a>
+                  <a href="contact"><i className="fa fa-chevron-right me-2"></i>Contact Us</a>
+                  <a href="service"><i className="fa fa-chevron-right me-2"></i>Our Services</a>
+                  <a href="term"><i className="fa fa-chevron-right me-2"></i>Terms & Condition</a>
                 </div>
               </div>
 
@@ -167,18 +167,31 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="copyright-section mt-5 border-top border-secondary">
-        <div className="container py-4">
-          <div className="row">
-            <div className="col-md-6 text-center text-md-start">
-              &copy; <a href="#" className="gold-text text-decoration-none">Your Site Name</a>, All Right Reserved.
-            </div>
-            <div className="col-md-6 text-center text-md-end">
-              Designed By <a href="#" className="gold-text border-bottom text-decoration-none">Minakshi Mahajan</a>. Distributed By <a href="#" className="gold-text border-bottom text-decoration-none">ThemeWagon</a>.
-            </div>
-          </div>
-        </div>
+    <div className="copyright-section mt-5 border-top border-secondary">
+  <div className="container py-4">
+    <div className="row">
+      <div className="col-md-6 text-center text-md-start">
+        &copy; <a href="/" className="gold-text text-decoration-none">
+          Archana Beauty Academy
+        </a>, All Rights Reserved.
       </div>
+
+      <div className="col-md-6 text-center text-md-end">
+        Designed & Developed By{" "}
+        <span className="gold-text">Minakshi Mahajan</span>{" "}
+        |{" "}
+        <a
+          href="https://www.instagram.com/modernwebstudio2026/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="gold-text border-bottom text-decoration-none"
+        >
+          M Web Studio💻✨
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
     </footer>
   );
 };

@@ -27,12 +27,12 @@
 //                                 {/* Image Wrapper for Zoom Effect */}
 //                                 <div className="team-img-wrapper">
 //                                     <img src={member.img} alt={member.name} className="img-fluid team-img" />
-                                    
+
 //                                     {/* Overlay Content */}
 //                                     <div className="team-content-overlay">
 //                                         <p className="member-role">{member.role}</p>
 //                                         <h4 className="member-name">{member.name}</h4>
-                                        
+
 //                                         {/* Styled Social Icons */}
 //                                         <div className="team-socials d-flex justify-content-center gap-2">
 //                                             <a href="#" className="social-icon-frame"><i className="fab fa-facebook-f"></i></a>
@@ -51,54 +51,183 @@
 // };
 
 // export default Team;
+// import React from 'react';
+
+// import p1 from '../img/image.png';
+// import p2 from '../img/sanket1.jpg';
+// import p3 from '../img/img4.jpg';
+// import p4 from '../img/img6.jpg';
+
+// const Team = () => {
+//   const teamData = [
+//     { id: 1, name: "Archana Mali", role: "Owner of Acedamy", img: p1 },
+//     { id: 2, name: "Sanket Mali", role: "Makeup Artist", img: p2 },
+//     { id: 3, name: "Ava Brown", role: "Beauty Specialist", img: p3 },
+//     { id: 4, name: "Amelia Jones", role: "Spa Specialist", img: p4 },
+//   ];
+
+//   return (
+//     <section className="team-section py-5 position-relative">
+//       <div className="container text-center py-5">
+//         <h5 className="all-subtitle text-uppercase">Team Members</h5>
+//         <h1 className="all-main-title mb-5">Our Experienced Specialists</h1>
+
+//         <div className="position-relative">
+//           {/* Background Patti (Strip) */}
+//           <div className="team-patti"></div>
+
+//           <div className="row g-4 position-relative" style={{ zIndex: 2 }}>
+//             {teamData.map((member) => (
+//               <div key={member.id} className="col-lg-3 col-md-6">
+//                 <div className="team-card">
+//                   <div className="team-img-container">
+//                     <img src={member.img} alt={member.name} className="img-fluid team-photo" />
+
+//                     {/* Glassmorphism Info Box */}
+//                     <div className="member-info-box">
+//                       <p className="m-role">{member.role}</p>
+//                       <h4 className="m-name">{member.name}</h4>
+
+//                       <div className="d-flex justify-content-center">
+
+//   {/* Facebook */}
+//   <a
+//     href="https://www.facebook.com/archana.mali"
+//     target="_blank"
+//     rel="noopener noreferrer"
+//     className="text-decoration-none"
+//   >
+//     <div className="social-box">
+//       <i className="fab fa-facebook-f"></i>
+//     </div>
+//   </a>
+
+//   {/* Instagram */}
+//   <a
+//     href="https://www.instagram.com/archies.jalgaon/"
+//     target="_blank"
+//     rel="noopener noreferrer"
+//     className="text-decoration-none"
+//   >
+//     <div className="social-box">
+//       <i className="fab fa-instagram"></i>
+//     </div>
+//   </a>
+
+// </div>
+//                     </div>
+//                   </div>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Team;
 import React from 'react';
 
-import p1 from '../img/img2.jpg';
-import p2 from '../img/img3.jpg';
+import p1 from '../img/image.png';
+import p2 from '../img/sanket1.jpg';
 import p3 from '../img/img4.jpg';
 import p4 from '../img/img6.jpg';
 
 const Team = () => {
   const teamData = [
-    { id: 1, name: "Lily Taylor", role: "Hair Specialist", img: p1 },
-    { id: 2, name: "Olivia Smith", role: "Nail Designer", img: p2 },
-    { id: 3, name: "Ava Brown", role: "Beauty Specialist", img: p3 },
-    { id: 4, name: "Amelia Jones", role: "Spa Specialist", img: p4 },
+    {
+      id: 1,
+      name: "Archana Mali",
+      role: "Owner of Academy",
+      designation: "Senior Makeup Artist",
+      img: p1,
+      facebook: "https://www.facebook.com/archana.mali",
+      instagram: "https://www.instagram.com/archies.jalgaon/",
+    },
+    {
+      id: 2,
+      name: "Sanket Mali",
+      role: "National Makeup Champion",
+      designation: "Makeup Artist",
+      img: p2,
+      facebook: "https://www.facebook.com/sanket.mali.39395033",
+      instagram: "https://www.instagram.com/sanket_makeup_artist/",
+    },
+
   ];
 
   return (
-    <section className="team-section py-5 position-relative">
+    <section className="team-section  position-relative">
       <div className="container text-center py-5">
-        <h5 className="team-subtitle">Team Members</h5>
-        <h1 className="team-main-title mb-5">Our Experienced Specialists</h1>
+        <h5 className="all-subtitle text-uppercase">Team Members</h5>
+        <h1 className="all-main-title mb-5">
+          Our Experienced Specialists
+        </h1>
 
         <div className="position-relative">
-          {/* Background Patti (Strip) */}
-          <div className="team-patti"></div>
+         
 
-          <div className="row g-4 position-relative" style={{ zIndex: 2 }}>
+          <div
+            className="row g-4 justify-content-center "
+            style={{ zIndex: 2 }}
+          >
             {teamData.map((member) => (
               <div key={member.id} className="col-lg-3 col-md-6">
                 <div className="team-card">
                   <div className="team-img-container">
-                    <img src={member.img} alt={member.name} className="img-fluid team-photo" />
-                    
-                    {/* Glassmorphism Info Box */}
+                    <img
+                      src={member.img}
+                      alt={member.name}
+                      className="img-fluid team-photo"
+                    />
+
                     <div className="member-info-box">
-                      <p className="m-role">{member.role}</p>
-                      <h4 className="m-name">{member.name}</h4>
+                      <p className="m-role ">{member.role}</p>
                       
-                      <div className="d-flex justify-content-center">
-                        <div className="social-box"><i className="fab fa-facebook-f"></i></div>
-                        <div className="social-box"><i className="fab fa-instagram"></i></div>
-                        <div className="social-box"><i className="fab fa-linkedin-in"></i></div>
+                        <p className="m-designation">({member.designation})</p>
+                      
+
+                      <h5 className="m-name">{member.name}</h5>
+
+                      <div className="d-flex justify-content-center gap-2">
+
+                        {member.facebook && (
+                          <a
+                            href={member.facebook}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-decoration-none"
+                          >
+                            <div className="social-box">
+                              <i className="fab fa-facebook-f"></i>
+                            </div>
+                          </a>
+                        )}
+
+                        {member.instagram && (
+                          <a
+                            href={member.instagram}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-decoration-none"
+                          >
+                            <div className="social-box">
+                              <i className="fab fa-instagram"></i>
+                            </div>
+                          </a>
+                        )}
+
                       </div>
                     </div>
+
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </div>
     </section>

@@ -65,25 +65,25 @@
 
 
 import React from 'react';
-
+import priceimg from '../img/onlineimg.png';
 const OnlineH = () => {
 
   // WhatsApp Function
   const handleEnrollClick = () => {
-    const phoneNumber = "917020489915"; // Aapka number
+    const phoneNumber = "919422577198"; // Aapka number
     const message = "Hello Archies Beauty Academy, I am interested in enrolling in your Online Academy. Please share the admission details.";
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
 
   return (
-    <div style={{ backgroundColor: '#fff', padding: '80px 0' }}>
+    <div style={{ backgroundColor: '#fff', padding: '00px 0' }}>
       <div className="container">
         {/* Section Heading */}
         <div className="text-center mb-5">
-          <h6 className="text-uppercase" style={{ color: '#B88A4A', letterSpacing: '3px', fontWeight: 'bold' }}>Training & Certification</h6>
-          <h2 className="display-5 fw-bold" style={{ color: '#1a1a1a', fontFamily: 'serif' }}>Join Our Online Classes</h2>
-          <div style={{ width: '60px', height: '3px', backgroundColor: '#B88A4A', margin: '20px auto' }}></div>
+          <h6 className="text-uppercase all-subtitle">Training & Certification</h6>
+          <h2 className="all-main-title " >Join Our Online Classes</h2>
+          {/* <div style={{ width: '60px', height: '3px', backgroundColor: '#B88A4A', margin: '20px auto' }}></div> */}
         </div>
 
         <div className="row g-4 align-items-center">
@@ -91,16 +91,12 @@ const OnlineH = () => {
           <div className="col-lg-6">
             <div className="position-relative shadow-lg rounded overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" 
+                src={priceimg} 
                 className="img-fluid w-100" 
                 alt="Academy Training" 
                 style={{ transition: '0.5s all' }}
               />
-              <div className="position-absolute top-50 start-50 translate-middle">
-                <button className="btn btn-light rounded-circle p-4 shadow-lg" style={{ width: '80px', height: '80px' }}>
-                  <span style={{ color: '#B88A4A', fontSize: '24px' }}>▶</span>
-                </button>
-              </div>
+             
             </div>
           </div>
 
@@ -108,7 +104,7 @@ const OnlineH = () => {
           <div className="col-lg-6 ps-lg-5">
             <h3 className="fw-bold mb-4" style={{ fontFamily: 'serif' }}>Master the Art of Beauty from Home</h3>
             <p className="text-muted mb-4">
-              Archies Academy laya hai aapke liye special online modules. Chahe aap beginner hon ya professional, hamari classes aapki skills ko next level par le jayengi.
+             Archies Academy brings special online classes for you. Whether you are a beginner or a professional, our classes will help you improve your skills.
             </p>
 
             <div className="row g-3 mb-5">

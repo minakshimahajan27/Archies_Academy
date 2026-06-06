@@ -158,12 +158,16 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '../components/Footer';
-
+import classes from '../img/classes.png'
+import makeup from '../img/makeup...jpeg';
+import p1 from '../img/haircut...jpg';
+import p6 from '../img/skin-care...jpeg';
+ import classesImg from '../img/classes.png';
 const BeautyAcademy = () => {
 
   // WhatsApp Function
   const handleWhatsApp = (courseName) => {
-    const phoneNumber = "917020489915"; // <--- Apna WhatsApp Number yahan likhein (with 91)
+    const phoneNumber = "+919422577198"; // <--- Apna WhatsApp Number yahan likhein (with 91)
     const message = `Hello Archies Beauty Academy, I want to join the "${courseName}" online course. Please share the details.`;
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
@@ -173,21 +177,33 @@ const BeautyAcademy = () => {
     <div className="academy-page bg-light">
       
       {/* Hero Section - Academy Theme */}
-      <section className="hero-section text-white d-flex align-items-center" style={{ 
-          background: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")',
-          backgroundSize: 'cover',
-          height: '75vh',
-          backgroundPosition: 'center'
-        }}>
+      {/* <section className="hero-section text-white d-flex align-items-center" style={{ 
+          background: 'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("./src/img/classes.png")no-repeat center center',
+          height: '45vh',
+          backgroundPosition: 'center',
+           backgroundSize: 'cover',
+        }}> */}
+       
+
+<section
+  className="hero-section text-white d-flex align-items-center"
+  style={{
+    background: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${classesImg})`,
+    height: '60vh',
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  }}
+>
         <div className="container text-center">
-          <h5 className="text-uppercase mb-3" style={{ color: '#B88A4A', letterSpacing: '4px' }}>Learn from the Masters</h5>
-          <h1 className="display-3 fw-bold mb-3">Archies Beauty Academy</h1>
-          <p className="lead mb-4 mx-auto" style={{ maxWidth: '800px' }}>
+          <h5 className=" all-subtitle text-uppercase mb-3 fs-4" style={{ color: '#B88A4A', letterSpacing: '4px' }}>Learn from the Masters</h5>
+          <h1 className="display-4 fw-bold mb-3">Archies Beauty Academy</h1>
+          <p className="lead mb-4 mx-auto" style={{ maxWidth: '800px',fontSize:'15px' }}>
             Master International Makeup techniques and Hair Styling from the comfort of your home. 
             Join our online live classes and become a Certified Beauty Expert today.
           </p>
           <div className="d-flex justify-content-center gap-3">
-            <button className="btn btn-warning btn-lg px-4 fw-bold shadow">View Courses</button>
+            <button className="btn btn-lg px-4 py-3 fw-bold shadow text-decoration-none" style={{ backgroundColor: '#B88A4A', color: 'white', display: 'inline-block' ,fontSize:'15px'}}>View Courses</button>
           </div>
         </div>
       </section>
@@ -216,8 +232,8 @@ const BeautyAcademy = () => {
         <div className="container py-5">
           <div className="row align-items-end mb-5">
             <div className="col-md-6">
-              <h5 className="text-uppercase" style={{ color: '#B88A4A', letterSpacing: '2px' }}>Start Learning</h5>
-              <h2 className="display-6 fw-bold">Our Online Programs</h2>
+              <h5 className="all-subtitle text-uppercase fs-4" style={{ color: '#B88A4A', letterSpacing: '2px' }}>Start Learning</h5>
+              <h2 className="all-main-title">Our Online Programs</h2>
             </div>
             <div className="col-md-6 text-md-end">
               <p className="text-muted">Every course includes comprehensive study materials and practical assignments.</p>
@@ -229,20 +245,21 @@ const BeautyAcademy = () => {
             <div className="col-lg-4 col-md-6">
               <div className="card h-100 shadow-sm border-0 position-relative">
                 <span className="badge position-absolute top-0 end-0 m-3 bg-danger">Best Seller</span>
-                <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=600&q=80" className="card-img-top" alt="Hair Course" />
+                <img src={makeup} className="card-img-top" alt="Hair Course" />
                 <div className="card-body p-4">
                   <div className="d-flex justify-content-between mb-2">
                     <small className="text-muted">6 Weeks</small>
                     <small className="text-warning">⭐⭐⭐⭐⭐ (4.8)</small>
                   </div>
-                  <h5 className="card-title fw-bold">Master Makeup Artistry</h5>
+                  <h5 className="card-title fw-bold"  style={{ color: '#B88A4A'}}>Master Makeup Artistry</h5>
                   <p className="card-text text-muted small">Learn everything from Basic to Bridal, including Contouring and advanced Eye Makeup.</p>
                   <hr />
                   <div className="d-flex justify-content-between align-items-center">
                     <span className="h5 fw-bold mb-0">₹4,999</span>
                     <button 
-                      className="btn btn-dark btn-sm"
+                      className="btn btn-sm"
                       onClick={() => handleWhatsApp("Master Makeup Artistry")}
+                      style={{ background: '#B88A4A',color :'white'}}
                     >
                       Join Course
                     </button>
@@ -254,20 +271,21 @@ const BeautyAcademy = () => {
             {/* Course 2 */}
             <div className="col-lg-4 col-md-6">
               <div className="card h-100 shadow-sm border-0">
-                <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=600&q=80" className="card-img-top" alt="Hair Course" />
+                <img src={p1} className="card-img-top" alt="Hair Course" />
                 <div className="card-body p-4">
                   <div className="d-flex justify-content-between mb-2">
                     <small className="text-muted">4 Weeks</small>
                     <small className="text-warning">⭐⭐⭐⭐ (4.5)</small>
                   </div>
-                  <h5 className="card-title fw-bold">Advanced Hair Styling</h5>
+                  <h5 className="card-title fw-bold"  style={{ color: '#B88A4A'}}>Advanced Hair Styling</h5>
                   <p className="card-text text-muted small">Master chemical treatments, color theory, and modern haircutting techniques.</p>
                   <hr />
                   <div className="d-flex justify-content-between align-items-center">
-                    <span className="h5 fw-bold mb-0">₹3,499</span>
+                    <span className="h5 fw-bold mb-0"  >₹3,499</span>
                     <button 
-                      className="btn btn-dark btn-sm"
+                      className="btn btn-sm"
                       onClick={() => handleWhatsApp("Advanced Hair Styling")}
+                      style={{ background: '#B88A4A',color :'white'}}
                     >
                       Join Course
                     </button>
@@ -279,20 +297,21 @@ const BeautyAcademy = () => {
             {/* Course 3 */}
             <div className="col-lg-4 col-md-6">
               <div className="card h-100 shadow-sm border-0">
-                <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=600&q=80" className="card-img-top" alt="Hair Course" />
+                <img src={p6} className="card-img-top" alt="Hair Course" />
                 <div className="card-body p-4">
                   <div className="d-flex justify-content-between mb-2">
                     <small className="text-muted">3 Weeks</small>
                     <small className="text-warning">⭐⭐⭐⭐⭐ (4.9)</small>
                   </div>
-                  <h5 className="card-title fw-bold">Skincare & Aesthetics</h5>
+                  <h5 className="card-title fw-bold"  style={{ color: '#B88A4A'}}>Skincare & Aesthetics</h5>
                   <p className="card-text text-muted small">Expert training in facial techniques, skin analysis, and product knowledge.</p>
                   <hr />
                   <div className="d-flex justify-content-between align-items-center">
                     <span className="h5 fw-bold mb-0">₹2,999</span>
                     <button 
-                      className="btn btn-dark btn-sm"
+                      className="btn btn-sm"
                       onClick={() => handleWhatsApp("Skincare & Aesthetics")}
+                      style={{ background: '#B88A4A',color :'white'}}
                     >
                       Join Course
                     </button>
@@ -305,7 +324,7 @@ const BeautyAcademy = () => {
       </section>
 
       {/* Academy Stats / Why Us */}
-      <section className="py-5 text-white" style={{ backgroundColor: '#1a1a1a' }}>
+      <section className="py-5 text-white mb-1" style={{ backgroundColor: '#1a1a1a' }}>
         <div className="container">
           <div className="row text-center g-4">
             <div className="col-6 col-md-3">

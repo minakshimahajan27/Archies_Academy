@@ -22,10 +22,10 @@ const Testimonial = () => {
   ];
 
   return (
-    <section className="testimonial-section py-5">
+    <section className="testimonial-section ">
       <div className="container text-center py-5">
-        <h5 className="testi-subtitle">Testimonial</h5>
-        <h1 className="testi-title mb-5">What Clients Say!</h1>
+        <h5 className="all-subtitle text-uppercase">Testimonial</h5>
+        <h1 className="all-main-title mb-5">What Clients Say!</h1>
 
         <Swiper
           modules={[Navigation, Autoplay]}

@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 
 // Aapki image imports (src/img folder se)
-import p1 from '../img/img2.jpg';
-import p2 from '../img/img3.jpg';
+import p1 from '../img/img8.jpg';
+import p2 from '../img/img9.jpg';
 import p3 from '../img/img6.jpg';
-import p4 from '../img/img4.jpg';
-import p5 from '../img/img6.jpg';
+import p4 from '../img/img7.jpg';
+import p5 from '../img/img4.jpg';
 import p6 from '../img/img5.jpg';
-
+import p7 from '../img/img10.jpg';
+import p8 from '../img/img11.jpg';
+import p9 from '../img/img12.jpg';
+import p10 from '../img/img13.jpg';
 const Gallery = () => {
     const [selectedImg, setSelectedImg] = useState(null);
 
@@ -18,10 +21,10 @@ const Gallery = () => {
 
     return (
         <section className="gallery-section py-5">
-            <div className="container py-lg-5">
+            <div className="container-xxl py-lg-5">
                 <div className="text-center mb-5">
-                    <h5 className="gallery-subtitle">Gallery</h5>
-                    <h1 className="gallery-main-title">Explore Our Gallery</h1>
+                    <h5 className="all-subtitle text-uppercase">Gallery</h5>
+                    <h1 className="all-main-title">Explore Our Gallery</h1>
                 </div>
 
                 {/* --- Row 1: Pehli image badi (col-lg-6), baaki do choti (col-lg-3) --- */}
@@ -75,7 +78,34 @@ const Gallery = () => {
                         </div>
                     </div>
                 </div>
+                            <div className="row g-0 mb-lg-0">
+                    {/* Big Image 1 */}
+                    <div className="col-lg-6 col-md-12">
+                        <div className="gallery-item-box wide-height" onClick={() => openLightbox(p7)}>
+                            <img src={p7} alt="Salon 1" className="img-fluid gallery-photo" />
+                            <div className="gallery-overlay">
+                                <span className="plus-symbol">+</span>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Narrow Image 2 */}
+                    <div className="col-lg-3 col-md-6">
+                        <div className="gallery-item-box narrow-height" onClick={() => openLightbox(p8)}>
+                            <img src={p8} alt="Salon 2" className="img-fluid gallery-photo" />
+                            <div className="gallery-overlay"><span className="plus-symbol">+</span></div>
+                        </div>
+                    </div>
+                    {/* Narrow Image 3 */}
+                    <div className="col-lg-3 col-md-6">
+                        <div className="gallery-item-box narrow-height" onClick={() => openLightbox(p10)}>
+                            <img src={p10} alt="Salon 3" className="img-fluid gallery-photo" />
+                            <div className="gallery-overlay"><span className="plus-symbol">+</span></div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
 
             {/* Custom Lightbox Pop-up */}
             {selectedImg && (

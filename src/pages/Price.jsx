@@ -429,24 +429,25 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import abc from '../img/page-header.jpg';
-import p1 from '../img/price-1.jpg';
-import p2 from '../img/price-2.jpg';
-import p3 from '../img/price-3.jpg';
-import p4 from '../img/price-4.jpg';
-import p5 from '../img/price-5.jpg';
-import p6 from '../img/price-6.jpg';
+import p1 from '../img/haircut...jpg';
+import p2 from '../img/makeup...jpeg';
+import p3 from '../img/manicure...jpeg';
+import p4 from '../img/pedicure...jpeg';
+import p5 from '../img/massage...jpeg';
+import p6 from '../img/skin-care...jpeg';
 import Footer from '../components/Footer';
+import abc from '../img/page-header.jpg';
 import { getAllPackagesService } from '../API/service.js';
 
 const pricingList = [
-  { name: "Haircut", price: "$49", img: p1 },
-  { name: "Makeup", price: "$79", img: p2 },
-  { name: "Manicure", price: "$59", img: p3 },
-  { name: "Pedicure", price: "$49", img: p4 },
-  { name: "Massage", price: "$39", img: p5 },
-  { name: "Skin Care", price: "$99", img: p6 },
+  { name: "Haircut", price: "Starts From ₹399/-", img: p1 },
+  { name: "Makeup", price: "Starts From ₹1,999/-", img: p2 },
+  { name: "Manicure", price: "Starts From ₹699/-", img: p3 },
+  { name: "Pedicure", price: "Starts From ₹899/-", img: p4 },
+  { name: "Massage", price: "Starts From ₹1,299/-", img: p5 },
+  { name: "Skin Care", price: "Starts From ₹999/-", img: p6 },
 ];
+
 
 export default function Price() {
   const [packages, setPackages] = useState([]);
@@ -473,7 +474,8 @@ export default function Price() {
           backgroundImage: `url(${abc})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          height: '350px'
+          height: '350px',
+           marginTop:'-0px'
         }}
       >
         <div>
@@ -481,54 +483,63 @@ export default function Price() {
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb justify-content-center">
               <li className="breadcrumb-item"><Link to="/" className="text-decoration-none" style={{ color: '#B88A4A' }}>Home</Link></li>
-              <li className="breadcrumb-item"><Link to="/pages" className="text-decoration-none" style={{ color: '#B88A4A' }}>Pages</Link></li>
+              <li className="breadcrumb-item"><Link to="/gallery" className="text-decoration-none" style={{ color: '#B88A4A' }}>Gallery</Link></li>
               <li className="breadcrumb-item active text-muted" aria-current="page">Prices</li>
             </ol>
           </nav>
         </div>
       </section>
 
-      <section className="pricing-section mt-5 mb-5">
-        <div className="pricing-container-custom d-flex flex-wrap mt-5 shadow-sm">
-          <div className="pricing-left-box p-5 d-flex flex-column justify-content-center">
-            <h5 className="pricing-italic-subtitle">Pricing</h5>
-            <h2 className="pricing-main-heading mb-4">Beauty Salon <br /><span className="pricing-bold-title">PRICING</span></h2>
-            <div className="row gx-2 align-items-center">
-              <div className="col-md-6 pt-5">
-                <div className="enjoy-discount-box text-center mb-4">
-                  <p className="mb-1">The Art of</p>
-                  <h1 className="display-6 fw-bold">BEAUTY</h1>
-                  <p className="mb-0 italic-font">Experience</p>
-                </div>
+     <section className="pricing-section my-5">
+      <div className="pricing-container-custom d-flex flex-wrap">
+        {/* Left Side: Golden Section */}
+        <div className="pricing-left-box p-5 d-flex flex-column justify-content-center">
+          <h5 className="pricing-italic-subtitle">Pricing</h5>
+          <h2 className="pricing-main-heading mb-4">Beauty Salon <br /><span className="pricing-bold-title">PRICING</span></h2>
+
+          {/* Dark Discount Box */}
+          <div className="row gx-2 align-items-center">
+            {/* gx-5 se dono columns ke beech achha gap aayega */}
+
+            <div className="col-md-6 pt-5">
+              <div className="enjoy-discount-box text-center mb-4">
+                <p className="mb-1 ">The Art of</p>
+                <h1 className="display-6 fw-bold">BEAUTY</h1>
+                <p className="mb-0 italic-font">Experience</p>
               </div>
-              <div className="col-md-6">
-                <p className="pricing-desc-text mb-4">
-                  Experience our premium services at the most affordable prices.
-                </p>
-                <div className="about-btn-container">
-                  <div className="custom-frame-btn1">
-                    <button className="btn-read-more-text">READ MORE</button>
-                  </div>
+            </div>
+
+            <div className="col-md-6">
+              <p className="pricing-desc-text mb-4">
+
+                Experience premium beauty care with expert professionals, modern techniques, and personalized treatments designed to enhance your natural glow.
+              </p>
+
+              <div className="about-btn-container">
+                <div className="custom-frame-btn1">
+                  <button className="btn-read-more-text">READ MORE</button>
                 </div>
               </div>
             </div>
           </div>
-
-          <div className="pricing-right-list p-5 d-flex flex-column justify-content-center">
-            {pricingList.map((item, index) => (
-              <div key={index} className="pricing-row-item d-flex align-items-center mb-3">
-                <div className="pricing-img-wrapper">
-                  <img src={item.img} alt={item.name} className="pricing-thumb" />
-                </div>
-                <div className="pricing-info d-flex justify-content-between align-items-center w-100">
-                  <div className="pricing-service-title">{item.name}</div>
-                  <div className="pricing-service-val">{item.price}</div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
-      </section>
+
+        {/* Right Side: Black List Section */}
+        <div className="pricing-right-list p-5 d-flex flex-column justify-content-center">
+          {pricingList.map((item, index) => (
+            <div key={index} className="pricing-row-item d-flex align-items-center mb-3">
+              <div className="pricing-img-wrapper">
+                <img src={item.img} alt={item.name} className="pricing-thumb" />
+              </div>
+              <div className="pricing-info d-flex justify-content-between align-items-center w-100">
+                <div className="pricing-service-title">{item.name}</div>
+                <div className="pricing-service-val">{item.price}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
       <section className="container mb-5 pb-5">
         <div className="text-center mb-5">

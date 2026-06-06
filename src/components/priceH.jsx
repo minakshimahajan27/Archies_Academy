@@ -1,25 +1,25 @@
 import React from 'react';
 
 // Images ko import karein (Path check kar lein)
-import p1 from '../img/price-1.jpg';
-import p2 from '../img/price-2.jpg';
-import p3 from '../img/price-3.jpg';
-import p4 from '../img/price-4.jpg';
-import p5 from '../img/price-5.jpg';
-import p6 from '../img/price-6.jpg';
+import p1 from '../img/haircut...jpg';
+import p2 from '../img/makeup...jpeg';
+import p3 from '../img/manicure...jpeg';
+import p4 from '../img/pedicure...jpeg';
+import p5 from '../img/massage...jpeg';
+import p6 from '../img/skin-care...jpeg';
 
 const pricingList = [
-  { name: "Haircut", price: "$49", img: p1 },
-  { name: "Makeup", price: "$79", img: p2 },
-  { name: "Manicure", price: "$59", img: p3 },
-  { name: "Pedicure", price: "$49", img: p4 },
-  { name: "Massage", price: "$39", img: p5 },
-  { name: "Skin Care", price: "$99", img: p6 },
+  { name: "Haircut", price: "Starts From ₹399/-", img: p1 },
+  { name: "Makeup", price: "Starts From ₹1,999/-", img: p2 },
+  { name: "Manicure", price: "Starts From ₹699/-", img: p3 },
+  { name: "Pedicure", price: "Starts From ₹899/-", img: p4 },
+  { name: "Massage", price: "Starts From ₹1,299/-", img: p5 },
+  { name: "Skin Care", price: "Starts From ₹999/-", img: p6 },
 ];
 
 export default function PriceH() {
   return (
-   
+
     <section className="pricing-section">
       <div className="pricing-container-custom d-flex flex-wrap">
         {/* Left Side: Golden Section */}
@@ -41,7 +41,8 @@ export default function PriceH() {
 
             <div className="col-md-6">
               <p className="pricing-desc-text mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget libero lobortis, auctor nisi quis, aliquet nunc. Nam dapibus lacus.
+
+                Experience premium beauty care with expert professionals, modern techniques, and personalized treatments designed to enhance your natural glow.
               </p>
 
               <div className="about-btn-container">
@@ -69,6 +70,6 @@ export default function PriceH() {
         </div>
       </div>
     </section>
-    
+
   );
 }
