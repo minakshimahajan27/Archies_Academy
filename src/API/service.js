@@ -28,8 +28,8 @@ export const adminLogin = async (email, password) => {
 //packeage..........................................................................
 
 
-// ✅ Add New Package Service
-// ✅ Add New Package Service
+// // ✅ Add New Package Service
+// // ✅ Add New Package Service
 export const addPackageService = async (packageData) => {
   try {
     const token = localStorage.getItem("adminToken");
@@ -99,7 +99,7 @@ export const updatePackageService = async (id, packageData) => {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || "Package update karne mein error aaya!");
+      throw new Error(data.message || " karne mein error aaya!");
     }
 
     return data;
@@ -135,7 +135,6 @@ export const deletePackageService = async (id) => {
     throw error;
   }
 };
-
 
 
 

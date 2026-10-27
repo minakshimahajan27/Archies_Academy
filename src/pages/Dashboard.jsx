@@ -521,19 +521,169 @@
 
 // export default AdminDashboard;
 
+// import React, { useState } from 'react';
+// import {
+//     FaChevronDown, FaPlus, FaList, FaBoxes, FaCamera,
+//     FaUsers, FaQuoteLeft, FaLaptopCode, FaSignOutAlt
+// } from 'react-icons/fa';
+
+// // Pehle apne banaye hue components ko import karein
+// import AddPackage from './AddPackage';
+// import PackageList from './PackageList';
+// import AddMedia from './AddMedia';
+// import MediaList from './MediaList';
+// import AddMember from './AddMember';
+// import MemberList from './MemberList';
+// import AddReview from './AddReview';
+// import ReviewList from './ReviewList';
+// import AddClass from './AddClass';
+// import ClassList from './ClassList';
+
+// const AdminDashboard = () => {
+//     const [openMenu, setOpenMenu] = useState('');
+//     const [activeView, setActiveView] = useState('Welcome');
+
+//     const toggleMenu = (menuName) => {
+//         setOpenMenu(openMenu === menuName ? '' : menuName);
+//     };
+
+//     const menuItems = [
+//         { id: 'pkg', label: 'Manage Packages', icon: <FaBoxes />, sub: ['Add Package', 'Package List'] },
+//         { id: 'media', label: 'Photos & Videos', icon: <FaCamera />, sub: ['Add Media', 'Media List'] },
+//         { id: 'team', label: 'Team Members', icon: <FaUsers />, sub: ['Add Member', 'Member List'] },
+//         { id: 'testi', label: 'Testimonials', icon: <FaQuoteLeft />, sub: ['Add Review', 'Review List'] },
+//         { id: 'classes', label: 'Online Classes', icon: <FaLaptopCode />, sub: ['Add New Class', 'Class List'] },
+//     ];
+
+//     // --- YE FUNCTION DECIDE KAREGA KAUNSA PAGE DIKHANA HAI ---
+//     const renderContent = () => {
+//         switch (activeView) {
+//             case 'Welcome':
+//                 return (
+//                     <div className="text-center my-auto">
+//                         <h1 className="fw-bold text-dark mb-3">Welcome to Archies Admin Dashboard</h1>
+//                         <p className="text-muted fs-5">Left side menu se options select karke data manage karein.</p>
+//                     </div>
+//                 );
+
+//             case 'Add Package':
+//                 return <AddPackage />; // Aapka naya component yahan call hoga
+
+//             case 'Package List':
+//                 return <PackageList />;
+
+//             case 'Add Media':
+//                 return <AddMedia />;
+
+//             case 'Media List':
+//                 return <MediaList />;
+//             case 'Add Member':
+//                 return <AddMember />;
+//             case 'Member List':
+//                 return <MemberList />;
+//             case 'Add Review':
+//                 return <AddReview />;
+//             case 'Review List':
+//                 return <ReviewList />;
+//             case 'Add New Class':
+//                 return <AddClass />;
+//             case 'Class List':
+//                 return <ClassList />;
+
+//             // Isi tarah baki cases bhi add karein...
+
+//             default:
+//                 return <div className="p-4"><h3>Content for {activeView} is coming soon...</h3></div>;
+//         }
+//     };
+
+//     return (
+//         <div className="d-flex" style={{ minHeight: '100vh', backgroundColor: '#f8f9fa' }}>
+
+//             {/* --- SIDEBAR --- */}
+//             <div className="bg-dark text-white p-3 shadow" style={{ width: '280px', minHeight: '100vh', position: 'fixed', top: '0', left: '0', paddingTop: '80px' }}>
+//                 <h3 className="text-center fw-bold py-4 mt-2" style={{ color: '#B88A4A', letterSpacing: '1px' }}>
+//                     ARCHIES PANEL
+//                 </h3>
+
+//                 <div className="nav flex-column mt-3">
+//                     {menuItems.map((item) => (
+//                         <div key={item.id} className="mb-2">
+//                             <button
+//                                 onClick={() => toggleMenu(item.id)}
+//                                 className="btn text-white w-100 d-flex justify-content-between align-items-center p-3 border-0 shadow-none"
+//                                 style={{ backgroundColor: openMenu === item.id ? '#2c2c2c' : 'transparent', fontSize: '15px' }}
+//                             >
+//                                 <span>{item.icon} <span className="ms-3">{item.label}</span></span>
+//                                 <FaChevronDown style={{
+//                                     fontSize: '11px',
+//                                     transform: openMenu === item.id ? 'rotate(180deg)' : 'none',
+//                                     transition: '0.3s'
+//                                 }} />
+//                             </button>
+
+//                             {openMenu === item.id && (
+//                                 <div className="bg-black bg-opacity-25 rounded-3 mt-1 ms-2">
+//                                     {item.sub.map((subItem) => (
+//                                         <button
+//                                             key={subItem}
+//                                             onClick={() => setActiveView(subItem)}
+//                                             className="btn btn-sm text-white-50 w-100 text-start ps-5 py-2 border-0 shadow-none sub-menu-btn"
+//                                             style={{
+//                                                 color: activeView === subItem ? '#B88A4A' : 'rgba(255,255,255,0.6)',
+//                                                 fontSize: '14px'
+//                                             }}
+//                                         >
+//                                             {subItem.includes('Add') ? <FaPlus size={10} className="me-2" /> : <FaList size={10} className="me-2" />}
+//                                             {subItem}
+//                                         </button>
+//                                     ))}
+//                                 </div>
+//                             )}
+//                         </div>
+//                     ))}
+
+//                     <button className="btn text-danger mt-5 p-3 text-start w-100 border-0 shadow-none fw-bold" style={{ fontSize: '15px' }}>
+//                         <FaSignOutAlt className="me-2" /> Logout
+//                     </button>
+//                 </div>
+//             </div>
+
+//             {/* --- MAIN CONTENT AREA --- */}
+//             <div className="flex-grow-1 p-5 d-flex align-items-start justify-content-center" style={{ marginLeft: '280px', marginTop: '80px' }}>
+//                 <div className="card shadow-sm border-0 p-5 w-100" style={{ borderRadius: '20px', minHeight: '70vh' }}>
+//                     {activeView !== 'Welcome' && (
+//                         <>
+//                             <h2 className="fw-bold mb-4" style={{ color: '#B88A4A' }}>{activeView}</h2>
+//                             <hr />
+//                         </>
+//                     )}
+
+//                     {/* Yahan switch function call ho raha hai */}
+//                     <div className="mt-2">
+//                         {renderContent()}
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default AdminDashboard;
+
 import React, { useState } from 'react';
 import {
     FaChevronDown, FaPlus, FaList, FaBoxes, FaCamera,
     FaUsers, FaQuoteLeft, FaLaptopCode, FaSignOutAlt
 } from 'react-icons/fa';
 
-// Pehle apne banaye hue components ko import karein
+// Components Import
 import AddPackage from './AddPackage';
 import PackageList from './PackageList';
 import AddMedia from './AddMedia';
 import MediaList from './MediaList';
-import AddMember from './AddMember';
-import MemberList from './MemberList';
+import AddStudent from './Addstudent';     // Add Student Component
+import StudentList from './StudentList'; // Students List Component
 import AddReview from './AddReview';
 import ReviewList from './ReviewList';
 import AddClass from './AddClass';
@@ -550,12 +700,12 @@ const AdminDashboard = () => {
     const menuItems = [
         { id: 'pkg', label: 'Manage Packages', icon: <FaBoxes />, sub: ['Add Package', 'Package List'] },
         { id: 'media', label: 'Photos & Videos', icon: <FaCamera />, sub: ['Add Media', 'Media List'] },
-        { id: 'team', label: 'Team Members', icon: <FaUsers />, sub: ['Add Member', 'Member List'] },
+        { id: 'students', label: 'Students', icon: <FaUsers />, sub: ['Add Students', 'Students List'] }, // Add Member ki jagah Students
         { id: 'testi', label: 'Testimonials', icon: <FaQuoteLeft />, sub: ['Add Review', 'Review List'] },
         { id: 'classes', label: 'Online Classes', icon: <FaLaptopCode />, sub: ['Add New Class', 'Class List'] },
     ];
 
-    // --- YE FUNCTION DECIDE KAREGA KAUNSA PAGE DIKHANA HAI ---
+    // --- RENDER CONTENT BASED ON ACTIVE VIEW ---
     const renderContent = () => {
         switch (activeView) {
             case 'Welcome':
@@ -567,7 +717,7 @@ const AdminDashboard = () => {
                 );
 
             case 'Add Package':
-                return <AddPackage />; // Aapka naya component yahan call hoga
+                return <AddPackage />;
 
             case 'Package List':
                 return <PackageList />;
@@ -577,20 +727,24 @@ const AdminDashboard = () => {
 
             case 'Media List':
                 return <MediaList />;
-            case 'Add Member':
-                return <AddMember />;
-            case 'Member List':
-                return <MemberList />;
+
+            case 'Add Students': // Sahi match
+                return <AddStudent />;
+
+            case 'Students List': // Sahi match
+                return <StudentList />;
+
             case 'Add Review':
                 return <AddReview />;
+
             case 'Review List':
                 return <ReviewList />;
+
             case 'Add New Class':
                 return <AddClass />;
+
             case 'Class List':
                 return <ClassList />;
-
-            // Isi tarah baki cases bhi add karein...
 
             default:
                 return <div className="p-4"><h3>Content for {activeView} is coming soon...</h3></div>;
@@ -601,7 +755,7 @@ const AdminDashboard = () => {
         <div className="d-flex" style={{ minHeight: '100vh', backgroundColor: '#f8f9fa' }}>
 
             {/* --- SIDEBAR --- */}
-            <div className="bg-dark text-white p-3 shadow" style={{ width: '280px', minHeight: '100vh', position: 'fixed', top: '0', left: '0', paddingTop: '80px' }}>
+            <div className="bg-dark text-white p-3 shadow" style={{ width: '280px', minHeight: '100vh', position: 'fixed', top: '0', left: '0', paddingTop: '80px', zIndex: 100 }}>
                 <h3 className="text-center fw-bold py-4 mt-2" style={{ color: '#B88A4A', letterSpacing: '1px' }}>
                     ARCHIES PANEL
                 </h3>
@@ -659,7 +813,6 @@ const AdminDashboard = () => {
                         </>
                     )}
 
-                    {/* Yahan switch function call ho raha hai */}
                     <div className="mt-2">
                         {renderContent()}
                     </div>

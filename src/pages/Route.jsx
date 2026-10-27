@@ -19,11 +19,14 @@ import Login from '../pages/Login';
 import Dashboard from '../pages/Dashboard';
 import AddPackage from '../pages/AddPackage';
 import PackageList from '../pages/PackageList';
-import AddMember from '../pages/AddMember';
-import MemberList from '../pages/MemberList';
+
 import AddClass from '../pages/AddClass';
 import ClassList from '../pages/ClassList';
 import FAQ from './FAQ';
+import Allphoto from './Allphoto';
+import AddStudent from './Addstudent';
+import StudentList from './StudentList';
+
 
 // Function ka naam 'Router' se badal kar 'AppRouter' kar diya hai
 export default function AppRouter() {
@@ -46,11 +49,12 @@ export default function AppRouter() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/addPackage" element={<AddPackage />} />
         <Route path="/PackageList" element={<PackageList />} />
-        <Route path="/addmember" element={<AddMember />} />
-        <Route path="/memberlist" element={<MemberList />} />
+        <Route path="/addstudent" element={<AddStudent/>} />
+        <Route path="/studentlist" element={<StudentList />} />
         <Route path="/addclass" element={<AddClass />} />
         <Route path="/classlist" element={<ClassList />} />
          <Route path="/faq" element={<FAQ />} />
+         <Route path="/allphoto" element={<Allphoto />} />
       </Routes>
     </Router>
   );

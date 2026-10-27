@@ -827,7 +827,7 @@ const Navbar = () => {
                             {/* Dropdown Menu Items */}
                             <ul className="dropdown-menu border-0 mt-2 p-2" aria-labelledby="navbarDropdown" style={dropdownMenuStyle}>
                                 <li>
-                                    <Link className="dropdown-item fw-bold text-dark " to="/gallery"  onClick={() => { scrollToTopManual(); closeMenu(); }}>
+                                    <Link className="dropdown-item fw-bold text-dark " to="/allphoto"  onClick={() => { scrollToTopManual(); closeMenu(); }}>
                                         GALLERY
                                     </Link>
                                 </li>
