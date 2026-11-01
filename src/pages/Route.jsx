@@ -27,6 +27,11 @@ import Allphoto from './Allphoto';
 import AddStudent from './Addstudent';
 import StudentList from './StudentList';
 
+import FashionShowModal from '../components/FashionShowModal';
+import FashionShowManage from './FashionShowManage';
+import FashionShowRegistrations from './FashionShowRegistrations';
+;
+
 
 // Function ka naam 'Router' se badal kar 'AppRouter' kar diya hai
 export default function AppRouter() {
@@ -49,12 +54,15 @@ export default function AppRouter() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/addPackage" element={<AddPackage />} />
         <Route path="/PackageList" element={<PackageList />} />
-        <Route path="/addstudent" element={<AddStudent/>} />
+        <Route path="/addstudent" element={<AddStudent />} />
         <Route path="/studentlist" element={<StudentList />} />
         <Route path="/addclass" element={<AddClass />} />
         <Route path="/classlist" element={<ClassList />} />
-         <Route path="/faq" element={<FAQ />} />
-         <Route path="/allphoto" element={<Allphoto />} />
+        <Route path="/faq" element={<FAQ />} />
+        <Route path="/allphoto" element={<Allphoto />} />
+        <Route path="/fashion" element={<FashionShowModal />} />
+        <Route path="/showmanage" element={ <FashionShowManage/>} />
+        <Route path="/showregistration" element={<FashionShowRegistrations/>} />
       </Routes>
     </Router>
   );

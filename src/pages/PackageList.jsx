@@ -735,6 +735,7 @@
 // export default PackageList;
 
 import React, { useState, useEffect } from "react";
+import Swal from 'sweetalert2';
 import {
     FaEdit,
     FaTrash,
@@ -829,43 +830,104 @@ const PackageList = () => {
     // =====================================================
     // DELETE PACKAGE
     // =====================================================
+    // const handleDelete = async (id) => {
+    //     if (!id) {
+    //         alert("Package ID nahi mila.");
+    //         return;
+    //     }
+
+    //     const confirmDelete = window.confirm(
+    //         "🗑️ Kya aap waqai is package ko delete karna chahte hain?"
+    //     );
+
+    //     if (!confirmDelete) return;
+
+    //     try {
+    //         setDeleteLoadingId(id);
+
+    //         const res = await deletePackageService(id);
+
+    //         if (res?.success || res === true) {
+    //             await loadPackages();
+    //         } else {
+    //             alert(
+    //                 res?.message ||
+    //                     "Package delete nahi hua."
+    //             );
+    //         }
+    //     } catch (error) {
+    //         console.error("Delete Error:", error);
+
+    //         alert(
+    //             error?.response?.data?.message ||
+    //                 error?.message ||
+    //                 "Delete karte waqt error aa gaya."
+    //         );
+    //     } finally {
+    //         setDeleteLoadingId(null);
+    //     }
+    // };
     const handleDelete = async (id) => {
-        if (!id) {
-            alert("Package ID nahi mila.");
-            return;
+    if (!id) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Package ID Gayab Hai',
+            text: 'Package ID nahi mila.',
+            confirmButtonColor: '#B88A4A'
+        });
+        return;
+    }
+
+    // Stylish Confirm Dialog
+    const result = await Swal.fire({
+        title: 'Kya aap sure hain?',
+        text: '🗑️ Kya aap waqai is package ko delete karna chahte hain?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Haan, delete karein!',
+        cancelButtonText: 'Cancel',
+        background: '#fff',
+        borderRadius: '15px'
+    });
+
+    if (!result.isConfirmed) return;
+
+    try {
+        setDeleteLoadingId(id);
+
+        const res = await deletePackageService(id);
+
+        if (res?.success || res === true) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Deleted!',
+                text: 'Package kamyabi se delete ho gaya hai.',
+                confirmButtonColor: '#B88A4A',
+                timer: 2000
+            });
+            await loadPackages();
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Delete Nahi Hua',
+                text: res?.message || 'Package delete nahi hua.',
+                confirmButtonColor: '#B88A4A'
+            });
         }
-
-        const confirmDelete = window.confirm(
-            "🗑️ Kya aap waqai is package ko delete karna chahte hain?"
-        );
-
-        if (!confirmDelete) return;
-
-        try {
-            setDeleteLoadingId(id);
-
-            const res = await deletePackageService(id);
-
-            if (res?.success || res === true) {
-                await loadPackages();
-            } else {
-                alert(
-                    res?.message ||
-                        "Package delete nahi hua."
-                );
-            }
-        } catch (error) {
-            console.error("Delete Error:", error);
-
-            alert(
-                error?.response?.data?.message ||
-                    error?.message ||
-                    "Delete karte waqt error aa gaya."
-            );
-        } finally {
-            setDeleteLoadingId(null);
-        }
-    };
+    } catch (error) {
+        console.error("Delete Error:", error);
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: error?.response?.data?.message || error?.message || 'Delete karte waqt error aa gaya.',
+            confirmButtonColor: '#B88A4A'
+        });
+    } finally {
+        setDeleteLoadingId(null);
+    }
+};
 
     // =====================================================
     // INPUT CHANGE
@@ -1089,6 +1151,13 @@ const PackageList = () => {
         >
             {/* ================= SEARCH ================= */}
             <div className="row mb-4">
+            <div 
+    className="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom sticky-top  pt-2" 
+    style={{ top: '70px', zIndex: 10 }}
+>
+    <h4 className="fw-bold mb-0" style={{ color: '#B88A4A' }}>Package List</h4>
+</div>
+
                 <div className="col-md-6">
                     <div
                         className="input-group shadow-sm"

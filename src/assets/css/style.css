@@ -1485,3 +1485,21 @@ box-sizing: border-box;
 .dropdown-toggle::after {
     color: #B88A4A;
 }
+
+.form-control:focus, .form-select:focus {
+    border-color: #B88A4A !important;
+    box-shadow: 0 0 0 0.15rem rgba(184, 138, 74, 0.25) !important;
+}
+/* Input aur Select field ke border aur focus ke liye */
+.form-select:focus,
+.form-control:focus {
+    border-color: #B88A4A !important;
+    box-shadow: 0 0 0 0.25rem rgba(184, 138, 74, 0.25) !important;
+    outline: none !important;
+}
+
+/* Options ka background white rakhein taaki pehli line par color fix na ho */
+.form-select option {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+}

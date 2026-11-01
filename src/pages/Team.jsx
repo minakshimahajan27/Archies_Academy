@@ -137,10 +137,19 @@ import p4 from '../img/img6.jpg';
 
 const Team = () => {
   const teamData = [
-    {
+     {
       id: 1,
+      name: "Sunil Mali",
+      role: "Co-Owner of Academy",
+      designation: "Management & Operations Head",
+      img: p1,
+      facebook: "https://www.facebook.com/sunil.g.mali",
+      instagram: "https://www.instagram.com/sunilmali_sm/",
+    },
+    {
+      id: 2,
       name: "Archana Mali",
-      role: "Owner of Academy",
+      role: "Co-Owner of Academy",
       designation: "Senior Makeup Artist",
       img: p1,
       facebook: "https://www.facebook.com/archana.mali",

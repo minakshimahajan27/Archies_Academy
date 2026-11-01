@@ -682,8 +682,219 @@
 
 // export default AddMedia;
 
-import React, { useState } from 'react';
-import { FaCloudUploadAlt, FaVideo, FaSave, FaSpinner } from 'react-icons/fa';
+
+// import React, { useState } from 'react';
+// import { FaCloudUploadAlt, FaVideo, FaSave, FaSpinner } from 'react-icons/fa';
+// import { toast, ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+// import { addMediaService } from '../API/service.js';
+
+// const AddMedia = () => {
+//     const [mediaType, setMediaType] = useState('photo'); // 'photo' ya 'video'
+//     const [preview, setPreview] = useState(null);
+//     const [loading, setLoading] = useState(false);
+    
+//     const [formData, setFormData] = useState({
+//         title: '',
+//         category: 'Bridal',
+//         file: null
+//     });
+
+//     const handleChange = (e) => {
+//         setFormData({ ...formData, [e.target.name]: e.target.value });
+//     };
+
+//     const handleFileChange = (e) => {
+//         const file = e.target.files[0];
+//         if (file) {
+//             setFormData({ ...formData, file: file });
+//             setPreview(URL.createObjectURL(file));
+//         }
+//     };
+
+//     // Tab switch karne par preview aur file reset karne ke liye
+//     const handleMediaTypeChange = (type) => {
+//         setMediaType(type);
+//         setPreview(null);
+//         setFormData(prev => ({ ...prev, file: null }));
+//         const fileInput = document.getElementById('mediaInput');
+//         if (fileInput) fileInput.value = '';
+//     };
+
+//     // --- API Integration Start ---
+//     const handleSubmit = async (e) => {
+//         e.preventDefault();
+
+//         if (!formData.file) {
+//             toast.error(`Kripya ek ${mediaType} select karein!`);
+//             return;
+//         }
+
+//         setLoading(true);
+
+//         const data = new FormData();
+//         data.append('title', formData.title);
+//         data.append('category', formData.category);
+//         data.append('mediaType', mediaType);
+//         data.append('file', formData.file); // Backend multer me 'file' name se accept hoga
+
+//         try {
+//             const res = await addMediaService(data);
+            
+//             toast.success("Media successfully uploaded!", {
+//                 position: "top-right",
+//                 autoClose: 3000,
+//             });
+
+//             // Form Reset
+//             setFormData({
+//                 title: '',
+//                 category: 'Bridal',
+//                 file: null
+//             });
+//             setPreview(null);
+//             setMediaType('photo');
+
+//             const fileInput = document.getElementById('mediaInput');
+//             if (fileInput) {
+//                 fileInput.value = '';
+//             }
+
+//         } catch (err) {
+//             console.error("Upload Error:", err);
+//             const errorMsg = err.response?.data?.message || err.message || "Something went wrong";
+//             toast.error("Error: " + errorMsg, {
+//                 position: "top-right",
+//                 autoClose: 4000,
+//             });
+//         } finally {
+//             setLoading(false);
+//         }
+//     };
+//     // --- API Integration End ---
+
+//     return (
+//         <div className="container-fluid p-0">
+//             <ToastContainer />
+
+//             <div className="row justify-content-center">
+//                 <div className="col-md-10">
+//                     <div className="bg-white p-4 rounded shadow-sm border">
+//                         {/* Toggle Buttons: Upload Photo / Upload Video */}
+//                         <div className="d-flex gap-3 mb-4 justify-content-center">
+//                             <button
+//                                 type="button"
+//                                 onClick={() => handleMediaTypeChange('photo')}
+//                                 className={`btn px-4 py-2 fw-bold ${mediaType === 'photo' ? 'btn-dark' : 'btn-outline-dark'}`}
+//                             >
+//                                 <FaCloudUploadAlt className="me-2" /> Upload Photo
+//                             </button>
+//                             <button
+//                                 type="button"
+//                                 onClick={() => handleMediaTypeChange('video')}
+//                                 className={`btn px-4 py-2 fw-bold ${mediaType === 'video' ? 'btn-dark' : 'btn-outline-dark'}`}
+//                             >
+//                                 <FaVideo className="me-2" /> Upload Video
+//                             </button>
+//                         </div>
+
+//                         <form onSubmit={handleSubmit}>
+//                             <div className="row">
+//                                 <div className="col-md-6">
+//                                     <div className="mb-3">
+//                                         <label className="form-label fw-bold">Title / Caption</label>
+//                                         <input
+//                                             type="text"
+//                                             name="title"
+//                                             className="form-control"
+//                                             placeholder="e.g. Stunning Look"
+//                                             value={formData.title}
+//                                             onChange={handleChange}
+//                                             required
+//                                         />
+//                                     </div>
+
+//                                     <div className="mb-3">
+//                                         <label className="form-label fw-bold">Gallery Category</label>
+//                                         <select 
+//                                             name="category" 
+//                                             className="form-select" 
+//                                             value={formData.category}
+//                                             onChange={handleChange}
+//                                         >
+//                                             <option value="Bridal">Bridal </option>
+//                                             <option value="Party">Party</option>
+//                                             <option value="Studio">Studio </option>
+//                                             <option value="Classes">Classes</option>
+//                                             <option value="Classes">Groom</option>
+//                                         </select>
+//                                     </div>
+//                                 </div>
+
+//                                 <div className="col-md-6 text-center">
+//                                     <label className="form-label fw-bold d-block">
+//                                         {mediaType === 'photo' ? 'Photo Preview' : 'Video Preview'}
+//                                     </label>
+//                                     <div
+//                                         className="border rounded d-flex flex-column align-items-center justify-content-center bg-light shadow-inner"
+//                                         style={{ height: '200px', overflow: 'hidden', position: 'relative', cursor: 'pointer' }}
+//                                         onClick={() => document.getElementById('mediaInput').click()}
+//                                     >
+//                                         {preview ? (
+//                                             mediaType === 'photo' ? (
+//                                                 <img src={preview} alt="Preview" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+//                                             ) : (
+//                                                 <video src={preview} style={{ width: '100%', height: '100%', objectFit: 'cover' }} controls />
+//                                             )
+//                                         ) : (
+//                                             <div className="p-3 text-center">
+//                                                 {mediaType === 'photo' ? (
+//                                                     <>
+//                                                         <FaCloudUploadAlt size={40} className="text-muted mb-2" />
+//                                                         <p className="small text-muted mb-0">Click to select photo</p>
+//                                                     </>
+//                                                 ) : (
+//                                                     <>
+//                                                         <FaVideo size={40} className="text-muted mb-2" />
+//                                                         <p className="small text-muted mb-0">Click to select video file</p>
+//                                                     </>
+//                                                 )}
+//                                             </div>
+//                                         )}
+//                                     </div>
+
+//                                     {/* Dynamic file input (Accepts images or videos based on mediaType) */}
+//                                     <input
+//                                         type="file"
+//                                         id="mediaInput"
+//                                         hidden
+//                                         accept={mediaType === 'photo' ? 'image/*' : 'video/*'}
+//                                         onChange={handleFileChange}
+//                                     />
+//                                 </div>
+//                             </div>
+
+//                             <div className="text-end mt-4 pt-3 border-top">
+//                                 <button type="submit" className="btn px-5 text-white fw-bold shadow-sm" style={{ backgroundColor: '#B88A4A' }} disabled={loading}>
+//                                     {loading ? (
+//                                         <><FaSpinner className="fa-spin me-2" /> UPLOADING...</>
+//                                     ) : (
+//                                         <><FaSave className="me-2" /> PUBLISH {mediaType.toUpperCase()} TO GALLERY</>
+//                                     )}
+//                                 </button>
+//                             </div>
+//                         </form>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default AddMedia;
+
+import React, { useState, useRef, useEffect } from 'react';
+import { FaCloudUploadAlt, FaVideo, FaSave, FaSpinner, FaChevronDown } from 'react-icons/fa';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { addMediaService } from '../API/service.js';
@@ -698,6 +909,22 @@ const AddMedia = () => {
         category: 'Bridal',
         file: null
     });
+
+    const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef(null);
+
+    const categories = ['Bridal', 'Party', 'Studio', 'Classes', 'Groom'];
+
+    // Bahar click karne par dropdown close ho jaye
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -813,20 +1040,56 @@ const AddMedia = () => {
                                         />
                                     </div>
 
-                                    <div className="mb-3">
+                                    {/* Custom Dropdown Replacing Standard Select */}
+                                    <div className="mb-3 position-relative" ref={dropdownRef}>
                                         <label className="form-label fw-bold">Gallery Category</label>
-                                        <select 
-                                            name="category" 
-                                            className="form-select" 
-                                            value={formData.category}
-                                            onChange={handleChange}
+                                        <div 
+                                            className="form-control d-flex justify-content-between align-items-center"
+                                            style={{ 
+                                                cursor: 'pointer', 
+                                                borderColor: isOpen ? '#B88A4A' : '#ced4da',
+                                                boxShadow: isOpen ? '0 0 0 0.25rem rgba(184, 138, 74, 0.25)' : 'none'
+                                            }}
+                                            onClick={() => setIsOpen(!isOpen)}
                                         >
-                                            <option value="Bridal">Bridal </option>
-                                            <option value="Party">Party</option>
-                                            <option value="Studio">Studio </option>
-                                            <option value="Classes">Classes</option>
-                                            <option value="Classes">Groom</option>
-                                        </select>
+                                            <span>{formData.category}</span>
+                                            <FaChevronDown size={12} style={{ color: '#B88A4A', transform: isOpen ? 'rotate(180deg)' : 'none', transition: '0.3s' }} />
+                                        </div>
+
+                                        {isOpen && (
+                                            <div 
+                                                className="position-absolute w-100 bg-white border rounded-3 shadow-sm mt-1 overflow-hidden" 
+                                                style={{ zIndex: 1000 }}
+                                            >
+                                                {categories.map((cat) => (
+                                                    <div 
+                                                        key={cat}
+                                                        className="px-3 py-2"
+                                                        style={{ 
+                                                            cursor: 'pointer', 
+                                                            backgroundColor: formData.category === cat ? '#fdf8f2' : 'transparent',
+                                                            color: formData.category === cat ? '#B88A4A' : '#333',
+                                                            fontWeight: formData.category === cat ? 'bold' : 'normal',
+                                                            transition: '0.2s'
+                                                        }}
+                                                        onMouseEnter={(e) => {
+                                                            e.currentTarget.style.backgroundColor = '#B88A4A';
+                                                            e.currentTarget.style.color = '#ffffff';
+                                                        }}
+                                                        onMouseLeave={(e) => {
+                                                            e.currentTarget.style.backgroundColor = formData.category === cat ? '#fdf8f2' : 'transparent';
+                                                            e.currentTarget.style.color = formData.category === cat ? '#B88A4A' : '#333';
+                                                        }}
+                                                        onClick={() => {
+                                                            setFormData({ ...formData, category: cat });
+                                                            setIsOpen(false);
+                                                        }}
+                                                    >
+                                                        {cat}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
 
