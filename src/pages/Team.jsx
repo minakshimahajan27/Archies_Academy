@@ -142,7 +142,7 @@ const Team = () => {
       name: "Sunil Mali",
       role: "Co-Owner of Academy",
       designation: "Management & Operations Head",
-      img: p1,
+      img: p2,
       facebook: "https://www.facebook.com/sunil.g.mali",
       instagram: "https://www.instagram.com/sunilmali_sm/",
     },

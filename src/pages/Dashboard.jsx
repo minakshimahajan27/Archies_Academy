@@ -693,7 +693,7 @@
 //                                 <div className="card border-0 shadow-sm p-4 rounded-4 bg-white h-100 text-center">
 //                                     <h5 className="fw-bold text-dark mb-2 text-start" style={{ color: '#B88A4A' }}>Academy Data Overview</h5>
 //                                     <p className="text-muted small text-start mb-3">Live proportional distribution of students, classes, and packages.</p>
-                                    
+
 //                                     <div className="d-flex justify-content-center align-items-center my-2">
 //                                         <div 
 //                                             className="rounded-circle d-flex flex-column align-items-center justify-content-center shadow-sm"
@@ -739,7 +739,7 @@
 //                             <div className="col-lg-6">
 //                                 <div className="card border-0 shadow-sm p-4 rounded-4 bg-white h-100">
 //                                     <h5 className="fw-bold text-dark mb-3">Quick Actions</h5>
-                                    
+
 //                                     <div className="row g-3 mt-1">
 //                                         <div className="col-md-6">
 //                                             <div className="p-3 border rounded-3 bg-light d-flex justify-content-between align-items-center" onClick={() => setActiveView('Add Students')} style={{ cursor: 'pointer' }}>
@@ -1129,7 +1129,7 @@
 //                                 <div className="card border-0 shadow-sm p-4 rounded-4 bg-white h-100 text-center">
 //                                     <h5 className="fw-bold text-dark mb-2 text-start" style={{ color: '#B88A4A' }}>Academy Data Overview</h5>
 //                                     <p className="text-muted small text-start mb-3">Live proportional distribution of students, classes, and packages.</p>
-                                    
+
 //                                     <div className="d-flex justify-content-center align-items-center my-2">
 //                                         <div 
 //                                             className="rounded-circle d-flex flex-column align-items-center justify-content-center shadow-sm"
@@ -1175,7 +1175,7 @@
 //                         <div className="col-lg-6">
 //                             <div className="card border-0 shadow-sm p-4 rounded-4 bg-white h-100">
 //                                 <h5 className="fw-bold text-dark mb-3">Quick Actions</h5>
-                                
+
 //                                 <div className="row g-3 mt-1">
 //                                     <div className="col-md-6">
 //                                         <div className="p-3 border rounded-3 bg-light d-flex justify-content-between align-items-center" onClick={() => handleViewChange('Add Students')} style={{ cursor: 'pointer' }}>
@@ -1231,11 +1231,11 @@
 //                                         <th>#</th>
 //                                         <th>Student Name</th>
 //                                         <th>Email</th>
-                                        
+
 //                                         <th>Phone</th>
 //                                         <th>Type</th>
 //                                         <th>Status</th>
-                                       
+
 //                                     </tr>
 //                             </thead>
 //                             <tbody>
@@ -1430,6 +1430,510 @@
 // };
 
 // export default AdminDashboard;
+
+
+// import React, { useState, useEffect } from 'react';
+// import {
+//     FaChevronDown, FaPlus, FaList, FaBoxes, FaCamera,
+//     FaUsers, FaQuoteLeft, FaLaptopCode, FaSignOutAlt, FaChartPie, FaCrown, FaBars, FaTimes, FaLaptop, FaBuilding
+// } from 'react-icons/fa';
+// import axios from 'axios';
+
+// // Components Import
+// import AddPackage from './AddPackage';
+// import PackageList from './PackageList';
+// import AddMedia from './AddMedia';
+// import MediaList from './MediaList';
+// import AddStudent from './Addstudent';
+// import StudentList from './StudentList';
+// import AddReview from './AddReview';
+// import ReviewList from './ReviewList';
+// import AddClass from './AddClass';
+// import ClassList from './ClassList';
+// import FashionShow  from './FashionShowForm';
+// import ParticipantRegistrations from './RegistrationsList';
+
+// const AdminDashboard = () => {
+//     const [openMenu, setOpenMenu] = useState('');
+//     const [activeView, setActiveView] = useState('Welcome');
+//     const [sidebarOpen, setSidebarOpen] = useState(false);
+
+//     // Dashboard Stats & Lists
+//     const [stats, setStats] = useState({
+//         packages: 0,
+//         media: 0,
+//         students: 0,
+//         reviews: 0,
+//         classes: 0
+//     });
+//     const [studentsList, setStudentsList] = useState([]);
+//     const [loadingStats, setLoadingStats] = useState(true);
+
+//     useEffect(() => {
+//         const fetchDashboardData = async () => {
+//             try {
+//                 setLoadingStats(true);
+//                 const [pkgRes, mediaRes, studentRes, reviewRes, classRes] = await Promise.allSettled([
+//                     axios.get('http://localhost:5000/api/admin/packages/all'),
+//                     axios.get('http://localhost:5000/api/admin/media/all'),
+//                     axios.get('http://localhost:5000/api/admin/student/getall'),
+//                     axios.get('http://localhost:5000/api/admin/reviews/all'),
+//                     axios.get('http://localhost:5000/api/admin/courses/all')
+//                 ]);
+
+//                 // Safe Array Extraction
+//                 const extractArray = (res) => {
+//                     if (res.status === 'fulfilled' && res.value?.data) {
+//                         const d = res.value.data;
+//                         if (Array.isArray(d)) return d;
+//                         if (Array.isArray(d.data)) return d.data;
+//                         if (Array.isArray(d.students)) return d.students;
+//                         if (Array.isArray(d.classes)) return d.classes;
+//                         if (Array.isArray(d.packages)) return d.packages;
+//                         if (Array.isArray(d.reviews)) return d.reviews;
+//                         if (Array.isArray(d.media)) return d.media;
+//                     }
+//                     return [];
+//                 };
+
+//                 const pkgs = extractArray(pkgRes);
+//                 const medias = extractArray(mediaRes);
+//                 const students = extractArray(studentRes);
+//                 const reviews = extractArray(reviewRes);
+//                 const classes = extractArray(classRes);
+
+//                 setStudentsList(students);
+
+//                 setStats({
+//                     packages: pkgs.length,
+//                     media: medias.length,
+//                     students: students.length,
+//                     reviews: reviews.length,
+//                     classes: classes.length,
+//                 });
+//             } catch (err) {
+//                 console.error("Dashboard overview stats fetch error:", err);
+//             } finally {
+//                 setLoadingStats(false);
+//             }
+//         };
+
+//         if (activeView === 'Welcome') {
+//             fetchDashboardData();
+//         }
+//     }, [activeView]);
+
+//     const toggleMenu = (menuName) => {
+//         setOpenMenu(openMenu === menuName ? '' : menuName);
+//     };
+
+//     const handleViewChange = (view) => {
+//         setActiveView(view);
+//         setSidebarOpen(false);
+//     };
+
+//     const menuItems = [
+//         { id: 'pkg', label: 'Manage Packages', icon: <FaBoxes />, sub: ['Add Package', 'Package List'] },
+//         { id: 'media', label: 'Photos & Videos', icon: <FaCamera />, sub: ['Add Media', 'Media List'] },
+//         { id: 'students', label: 'Students', icon: <FaUsers />, sub: ['Add Students', 'Students List'] },
+//         { id: 'testi', label: 'Testimonials', icon: <FaQuoteLeft />, sub: ['Add Review', 'Review List'] },
+//         { id: 'classes', label: 'Online Classes', icon: <FaLaptopCode />, sub: ['Add New Class', 'Class List'] },
+//         {
+//             id: 'fashion',
+//             label: 'Fashion Show',
+//             icon: <FaCrown />,
+//             sub: ['Fashion Show Form', 'Registrations List']
+//         },
+//     ];
+
+//     // Dynamic Chart Slice Calculations
+//     const totalItems = stats.students + stats.packages + stats.media + stats.classes + stats.reviews;
+//     const studentDeg = totalItems > 0 ? (stats.students / totalItems) * 360 : 0;
+//     const classDeg = totalItems > 0 ? studentDeg + (stats.classes / totalItems) * 360 : studentDeg;
+//     const pkgDeg = totalItems > 0 ? classDeg + (stats.packages / totalItems) * 360 : classDeg;
+//     const mediaDeg = totalItems > 0 ? pkgDeg + (stats.media / totalItems) * 360 : pkgDeg;
+
+//     const renderOverview = () => {
+//         return (
+//             <div>
+//                 {/* Header Welcome Bar */}
+//                 <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 p-4 rounded-4 shadow-sm text-white gap-3" style={{ background: 'linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%)', borderLeft: '6px solid #B88A4A', marginTop: '-30px' }}>
+//                     <div>
+//                         <h4 className="fw-bold mb-1" style={{ color: '#B88A4A' }}>Archies Beauty Academy Dashboard</h4>
+//                         <p className="text-muted small mb-0">Welcome back, Admin! Real-time academy summary and quick shortcuts.</p>
+//                     </div>
+//                     <div className="text-md-end">
+//                         <span className="badge p-2 px-3 fw-normal" style={{ backgroundColor: 'rgba(184, 138, 74, 0.15)', color: '#B88A4A', border: '1px solid #B88A4A' }}>
+//                             📅 {new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+//                         </span>
+//                     </div>
+//                 </div>
+
+//                 {loadingStats ? (
+//                     <div className="text-center py-5">
+//                         <div className="spinner-border text-warning" role="status">
+//                             <span className="visually-hidden">Loading...</span>
+//                         </div>
+//                     </div>
+//                 ) : (
+//                     <>
+//                         {/* Top 4 Main Stats Cards */}
+//                         <div className="row g-3 mb-4">
+//                             <div className="col-xl-3 col-md-6 col-sm-6">
+//                                 <div className="card border-0 shadow-sm p-3 rounded-4 bg-white h-100" onClick={() => handleViewChange('Students List')} style={{ cursor: 'pointer', borderTop: '4px solid #B88A4A' }}>
+//                                     <div className="d-flex justify-content-between align-items-center mb-2">
+//                                         <span className="text-muted small fw-bold">TOTAL STUDENTS</span>
+//                                         <div className="p-2 rounded-3 text-white" style={{ backgroundColor: '#B88A4A' }}><FaUsers size={16} /></div>
+//                                     </div>
+//                                     <h3 className="fw-bold text-dark mb-1">{stats.students}</h3>
+//                                     <small className="text-success" style={{ fontSize: '11px' }}>Enrolled candidates</small>
+//                                 </div>
+//                             </div>
+
+//                             <div className="col-xl-3 col-md-6 col-sm-6">
+//                                 <div className="card border-0 shadow-sm p-3 rounded-4 bg-white h-100" onClick={() => handleViewChange('Class List')} style={{ cursor: 'pointer', borderTop: '4px solid #ffc107' }}>
+//                                     <div className="d-flex justify-content-between align-items-center mb-2">
+//                                         <span className="text-muted small fw-bold">ONLINE CLASSES</span>
+//                                         <div className="p-2 rounded-3 text-white bg-warning"><FaLaptopCode size={16} /></div>
+//                                     </div>
+//                                     <h3 className="fw-bold text-dark mb-1">{stats.classes}</h3>
+//                                     <small className="text-warning" style={{ fontSize: '11px' }}>Active lectures</small>
+//                                 </div>
+//                             </div>
+
+//                             <div className="col-xl-3 col-md-6 col-sm-6">
+//                                 <div className="card border-0 shadow-sm p-3 rounded-4 bg-white h-100" onClick={() => handleViewChange('Package List')} style={{ cursor: 'pointer', borderTop: '4px solid #17a2b8' }}>
+//                                     <div className="d-flex justify-content-between align-items-center mb-2">
+//                                         <span className="text-muted small fw-bold">ACTIVE PACKAGES</span>
+//                                         <div className="p-2 rounded-3 text-white bg-info"><FaBoxes size={16} /></div>
+//                                     </div>
+//                                     <h3 className="fw-bold text-dark mb-1">{stats.packages}</h3>
+//                                     <small className="text-info" style={{ fontSize: '11px' }}>Salon packages</small>
+//                                 </div>
+//                             </div>
+
+//                             <div className="col-xl-3 col-md-6 col-sm-6">
+//                                 <div className="card border-0 shadow-sm p-3 rounded-4 bg-white h-100" onClick={() => handleViewChange('Media List')} style={{ cursor: 'pointer', borderTop: '4px solid #28a745' }}>
+//                                     <div className="d-flex justify-content-between align-items-center mb-2">
+//                                         <span className="text-muted small fw-bold">MEDIA FILES</span>
+//                                         <div className="p-2 rounded-3 text-white bg-success"><FaCamera size={16} /></div>
+//                                     </div>
+//                                     <h3 className="fw-bold text-dark mb-1">{stats.media}</h3>
+//                                     <small className="text-success" style={{ fontSize: '11px' }}>Photos & videos</small>
+//                                 </div>
+//                             </div>
+//                         </div>
+
+//                         {/* Middle Section: Circular Graph + Quick Actions */}
+//                         <div className="row g-4 mb-4">
+//                             {/* Circular Chart Component */}
+//                             <div className="col-lg-6">
+//                                 <div className="card border-0 shadow-sm p-4 rounded-4 bg-white h-100 text-center">
+//                                     <h5 className="fw-bold text-dark mb-2 text-start" style={{ color: '#B88A4A' }}>Academy Data Overview</h5>
+//                                     <p className="text-muted small text-start mb-3">Live proportional distribution of students, classes, and packages.</p>
+
+//                                     <div className="d-flex justify-content-center align-items-center my-2">
+//                                         <div
+//                                             className="rounded-circle d-flex flex-column align-items-center justify-content-center shadow-sm"
+//                                             style={{
+//                                                 width: '190px',
+//                                                 height: '190px',
+//                                                 background: totalItems > 0
+//                                                     ? `conic-gradient(#B88A4A 0deg ${studentDeg}deg, #ffc107 ${studentDeg}deg ${classDeg}deg, #17a2b8 ${classDeg}deg ${pkgDeg}deg, #28a745 ${pkgDeg}deg ${mediaDeg}deg, #6c757d ${mediaDeg}deg 360deg)`
+//                                                     : '#e9ecef',
+//                                                 padding: '14px',
+//                                                 transition: 'all 0.5s ease'
+//                                             }}
+//                                         >
+//                                             <div className="bg-white rounded-circle w-100 h-100 d-flex flex-column align-items-center justify-content-center">
+//                                                 <h2 className="fw-bold text-dark mb-0">{totalItems}</h2>
+//                                                 <small className="text-muted fw-bold" style={{ fontSize: '11px', color: '#B88A4A' }}>TOTAL RECORDS</small>
+//                                             </div>
+//                                         </div>
+//                                     </div>
+
+//                                     <div className="d-flex justify-content-center flex-wrap gap-3 mt-3">
+//                                         <div className="d-flex align-items-center gap-1">
+//                                             <span className="rounded-circle d-inline-block" style={{ width: '10px', height: '10px', backgroundColor: '#B88A4A' }}></span>
+//                                             <small className="text-muted fw-semibold">Students ({stats.students})</small>
+//                                         </div>
+//                                         <div className="d-flex align-items-center gap-1">
+//                                             <span className="rounded-circle d-inline-block" style={{ width: '10px', height: '10px', backgroundColor: '#ffc107' }}></span>
+//                                             <small className="text-muted fw-semibold">Classes ({stats.classes})</small>
+//                                         </div>
+//                                         <div className="d-flex align-items-center gap-1">
+//                                             <span className="rounded-circle d-inline-block" style={{ width: '10px', height: '10px', backgroundColor: '#17a2b8' }}></span>
+//                                             <small className="text-muted fw-semibold">Packages ({stats.packages})</small>
+//                                         </div>
+//                                         <div className="d-flex align-items-center gap-1">
+//                                             <span className="rounded-circle d-inline-block" style={{ width: '10px', height: '10px', backgroundColor: '#28a745' }}></span>
+//                                             <small className="text-muted fw-semibold">Media ({stats.media})</small>
+//                                         </div>
+//                                     </div>
+//                                 </div>
+//                             </div>
+
+//                             {/* Quick Action Shortcuts */}
+//                             <div className="col-lg-6">
+//                                 <div className="card border-0 shadow-sm p-4 rounded-4 bg-white h-100">
+//                                     <h5 className="fw-bold text-dark mb-3">Quick Actions</h5>
+
+//                                     <div className="row g-3 mt-1">
+//                                         <div className="col-md-6">
+//                                             <div className="p-3 border rounded-3 bg-light d-flex justify-content-between align-items-center" onClick={() => handleViewChange('Add Students')} style={{ cursor: 'pointer' }}>
+//                                                 <div>
+//                                                     <h6 className="fw-bold mb-1 text-dark">Add Student</h6>
+//                                                     <small className="text-muted">Register student</small>
+//                                                 </div>
+//                                                 <FaPlus style={{ color: '#B88A4A' }} size={16} />
+//                                             </div>
+//                                         </div>
+//                                         <div className="col-md-6">
+//                                             <div className="p-3 border rounded-3 bg-light d-flex justify-content-between align-items-center" onClick={() => handleViewChange('Add New Class')} style={{ cursor: 'pointer' }}>
+//                                                 <div>
+//                                                     <h6 className="fw-bold mb-1 text-dark">Online Class</h6>
+//                                                     <small className="text-muted">Schedule lecture</small>
+//                                                 </div>
+//                                                 <FaPlus className="text-warning" size={16} />
+//                                             </div>
+//                                         </div>
+//                                         <div className="col-md-6">
+//                                             <div className="p-3 border rounded-3 bg-light d-flex justify-content-between align-items-center" onClick={() => handleViewChange('Add Package')} style={{ cursor: 'pointer' }}>
+//                                                 <div>
+//                                                     <h6 className="fw-bold mb-1 text-dark">Add Package</h6>
+//                                                     <small className="text-muted">Create service plan</small>
+//                                                 </div>
+//                                                 <FaPlus className="text-info" size={16} />
+//                                             </div>
+//                                         </div>
+//                                         <div className="col-md-6">
+//                                             <div className="p-3 border rounded-3 bg-light d-flex justify-content-between align-items-center" onClick={() => handleViewChange('Add Media')} style={{ cursor: 'pointer' }}>
+//                                                 <div>
+//                                                     <h6 className="fw-bold mb-1 text-dark">Upload Media</h6>
+//                                                     <small className="text-muted">Add photo/video</small>
+//                                                 </div>
+//                                                 <FaPlus className="text-success" size={16} />
+//                                             </div>
+//                                         </div>
+//                                     </div>
+//                                 </div>
+//                             </div>
+//                         </div>
+
+//                         {/* Recent Students Directory Table */}
+//                         <div className="card border-0 shadow-sm p-4 rounded-4 bg-white">
+//                             <div className="d-flex justify-content-between align-items-center mb-3">
+//                                 <h5 className="fw-bold text-dark mb-0">Recent Enrolled Students ({studentsList.length})</h5>
+//                                 <button className="btn btn-sm text-white" style={{ backgroundColor: '#B88A4A' }} onClick={() => handleViewChange('Students List')}>View All</button>
+//                             </div>
+//                             <div className="table-responsive">
+//                                 <table className="table align-middle mb-0">
+//                                     <thead className="table-light fs-7">
+//                                         <tr>
+//                                             <th>#</th>
+//                                             <th>Student Name</th>
+//                                             <th>Email</th>
+//                                             <th>Phone</th>
+//                                             <th>Type</th>
+//                                             <th>Status</th>
+//                                         </tr>
+//                                     </thead>
+//                                     <tbody>
+//                                         {studentsList.slice(0, 5).length === 0 ? (
+//                                             <tr>
+//                                                 <td colSpan="6" className="text-center text-muted py-3">No student records found.</td>
+//                                             </tr>
+//                                         ) : (
+//                                             studentsList.slice(0, 5).map((student, index) => {
+//                                                 const typeVal = student.studentType || 'Online';
+//                                                 return (
+//                                                     <tr key={student._id || index}>
+//                                                         <td>{index + 1}</td>
+//                                                         <td className="fw-bold text-dark">{student.name || student.studentName || 'N/A'}</td>
+//                                                         <td>{student.email || 'N/A'}</td>
+//                                                         <td>{student.phone || student.mobile || 'N/A'}</td>
+//                                                         <td>
+//                                                             <span
+//                                                                 className="badge px-2.5 py-1 rounded-pill fw-normal"
+//                                                                 style={{
+//                                                                     backgroundColor: typeVal === 'Online' ? '#e7f1ff' : '#d1e7dd',
+//                                                                     color: typeVal === 'Online' ? '#0d6efd' : '#0f5132',
+//                                                                     fontSize: '0.75rem'
+//                                                                 }}
+//                                                             >
+//                                                                 {typeVal === 'Online' ? <FaLaptop className="me-1" /> : <FaBuilding className="me-1" />}
+//                                                                 {typeVal}
+//                                                             </span>
+//                                                         </td>
+//                                                         <td><span className="badge bg-success">Active</span></td>
+//                                                     </tr>
+//                                                 );
+//                                             })
+//                                         )}
+//                                     </tbody>
+//                                 </table>
+//                             </div>
+//                         </div>
+//                     </>
+//                 )}
+//             </div>
+//         );
+//     };
+
+//     const renderContent = () => {
+//         switch (activeView) {
+//             case 'Welcome':
+//                 return renderOverview();
+//             case 'Add Package':
+//                 return <AddPackage />;
+//             case 'Package List':
+//                 return <PackageList />;
+//             case 'Add Media':
+//                 return <AddMedia />;
+//             case 'Media List':
+//                 return <MediaList />;
+//             case 'Add Students':
+//                 return <AddStudent />;
+//             case 'Students List':
+//                 return <StudentList />;
+//             case 'Add Review':
+//                 return <AddReview />;
+//             case 'Review List':
+//                 return <ReviewList />;
+//             case 'Add New Class':
+//                 return <AddClass />;
+//             case 'Class List':
+//                 return <ClassList />;
+//             case 'Fashion Show Details':
+//                 return <FashionShow />;
+
+//             case 'Registrations List':
+//                 return <ParticipantRegistrations />;
+//             default:
+//                 return <div className="p-4"><h3>Content for {activeView} is coming soon...</h3></div>;
+//         }
+//     };
+
+//     return (
+//         <div className="d-flex flex-column flex-lg-row" style={{ backgroundColor: '#f8f9fa' }}>
+//             {/* Mobile Top Navbar */}
+//             <div className="d-flex d-lg-none justify-content-between align-items-center bg-dark text-white px-4 py-3 fixed-top shadow" style={{ zIndex: 1050, height: '70px' }}>
+//                 <h5 className="fw-bold mb-0" style={{ color: '#B88A4A', cursor: 'pointer' }} onClick={() => handleViewChange('Welcome')}>
+//                     ARCHIES PANEL
+//                 </h5>
+//                 <button className="btn text-white p-1 border-0 shadow-none" onClick={() => setSidebarOpen(!sidebarOpen)}>
+//                     {sidebarOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+//                 </button>
+//             </div>
+
+//             {/* Backdrop overlay for mobile drawer */}
+//             {sidebarOpen && (
+//                 <div
+//                     className="d-lg-none position-fixed top-0 start-0 w-100 h-100 bg-black bg-opacity-50"
+//                     style={{ zIndex: 1030 }}
+//                     onClick={() => setSidebarOpen(false)}
+//                 ></div>
+//             )}
+
+//             {/* Sidebar */}
+//             <div
+//                 className="bg-dark text-white p-3 shadow position-fixed top-0 start-0 h-100 overflow-y-auto"
+//                 style={{
+//                     width: '280px',
+//                     zIndex: 1040,
+//                     paddingTop: '30px',
+//                     marginTop: '70px',
+//                     transform: sidebarOpen ? 'translateX(0)' : 'translateX(-100%)',
+//                     transition: 'transform 0.3s ease-in-out',
+//                     ...(window.innerWidth >= 992 ? { transform: 'translateX(0)' } : {})
+//                 }}
+//             >
+//                 <div className="d-flex justify-content-between align-items-center d-lg-none mb-3">
+//                     <span className="fw-bold text-muted small">MENU</span>
+//                     <button className="btn text-white-50 p-0 border-0" onClick={() => setSidebarOpen(false)}>
+//                         <FaTimes size={18} />
+//                     </button>
+//                 </div>
+
+//                 <h3
+//                     className="text-center fw-bold py-4 mt-2 d-none d-lg-block"
+//                     style={{ color: '#B88A4A', letterSpacing: '1px', cursor: 'pointer' }}
+//                     onClick={() => handleViewChange('Welcome')}
+//                 >
+//                     ARCHIES PANEL
+//                 </h3>
+
+//                 <div className="nav flex-column mt-3">
+//                     <button
+//                         onClick={() => handleViewChange('Welcome')}
+//                         className="btn text-white w-100 d-flex align-items-center p-3 border-0 shadow-none mb-2"
+//                         style={{ backgroundColor: activeView === 'Welcome' ? '#2c2c2c' : 'transparent', color: activeView === 'Welcome' ? '#B88A4A' : '#fff', fontSize: '15px' }}
+//                     >
+//                         <FaChartPie className="me-3" /> Dashboard
+//                     </button>
+
+//                     {menuItems.map((item) => (
+//                         <div key={item.id} className="mb-2">
+//                             <button
+//                                 onClick={() => toggleMenu(item.id)}
+//                                 className="btn text-white w-100 d-flex justify-content-between align-items-center p-3 border-0 shadow-none"
+//                                 style={{ backgroundColor: openMenu === item.id ? '#2c2c2c' : 'transparent', fontSize: '15px' }}
+//                             >
+//                                 <span>{item.icon} <span className="ms-3">{item.label}</span></span>
+//                                 <FaChevronDown style={{
+//                                     fontSize: '11px',
+//                                     transform: openMenu === item.id ? 'rotate(180deg)' : 'none',
+//                                     transition: '0.3s'
+//                                 }} />
+//                             </button>
+
+//                             {openMenu === item.id && (
+//                                 <div className="bg-black bg-opacity-25 rounded-3 mt-1 ms-2">
+//                                     {item.sub.map((subItem) => (
+//                                         <button
+//                                             key={subItem}
+//                                             onClick={() => handleViewChange(subItem)}
+//                                             className="btn btn-sm text-white-50 w-100 text-start ps-5 py-2 border-0 shadow-none"
+//                                             style={{
+//                                                 color: activeView === subItem ? '#B88A4A' : 'rgba(255,255,255,0.6)',
+//                                                 fontSize: '14px'
+//                                             }}
+//                                         >
+//                                             {subItem.includes('Add') || subItem.includes('Event') ? <FaPlus size={10} className="me-2" /> : <FaList size={10} className="me-2" />}
+//                                             {subItem}
+//                                         </button>
+//                                     ))}
+//                                 </div>
+//                             )}
+//                         </div>
+//                     ))}
+
+//                     <button className="btn text-danger mt-4 p-3 text-start w-100 border-0 shadow-none fw-bold" style={{ fontSize: '15px' }}>
+//                         <FaSignOutAlt className="me-2" /> Logout
+//                     </button>
+//                 </div>
+//             </div>
+
+//             {/* Main Content Area */}
+//             <div className="flex-grow-1 p-3 p-md-5 d-flex align-items-start justify-content-center" style={{ marginLeft: '0', marginTop: '70px' }} id="main-content-area">
+//                 <style>{`
+//                     @media (min-width: 992px) {
+//                         #main-content-area {
+//                             margin-left: 280px !important;
+//                             margin-top: 0px !important;
+//                         }
+//                     }
+//                 `}</style>
+//                 <div className="w-100" style={{ minHeight: '70vh' }}>
+//                     {renderContent()}
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default AdminDashboard;
+
 import React, { useState, useEffect } from 'react';
 import {
     FaChevronDown, FaPlus, FaList, FaBoxes, FaCamera,
@@ -1442,14 +1946,14 @@ import AddPackage from './AddPackage';
 import PackageList from './PackageList';
 import AddMedia from './AddMedia';
 import MediaList from './MediaList';
-import AddStudent from './Addstudent'; 
+import AddStudent from './Addstudent';
 import StudentList from './StudentList';
 import AddReview from './AddReview';
 import ReviewList from './ReviewList';
 import AddClass from './AddClass';
 import ClassList from './ClassList';
-import FashionShowManage from './FashionShowManage';
-import FashionShowRegistrations from './FashionShowRegistrations';
+import FashionShow  from './FashionShowForm';
+import ParticipantRegistrations from './RegistrationsList';
 
 const AdminDashboard = () => {
     const [openMenu, setOpenMenu] = useState('');
@@ -1536,7 +2040,13 @@ const AdminDashboard = () => {
         { id: 'students', label: 'Students', icon: <FaUsers />, sub: ['Add Students', 'Students List'] },
         { id: 'testi', label: 'Testimonials', icon: <FaQuoteLeft />, sub: ['Add Review', 'Review List'] },
         { id: 'classes', label: 'Online Classes', icon: <FaLaptopCode />, sub: ['Add New Class', 'Class List'] },
-        { id: 'fashion', label: 'Fashion Show', icon: <FaCrown />, sub: ['Event Settings', 'Registrations List'] },
+        {
+            id: 'fashion',
+            label: 'Fashion Show',
+            icon: <FaCrown />,
+            // Updated sub-item names to match switch cases cleanly
+            sub: ['Fashion Show Form', 'Registrations List']
+        },
     ];
 
     // Dynamic Chart Slice Calculations
@@ -1624,14 +2134,14 @@ const AdminDashboard = () => {
                                 <div className="card border-0 shadow-sm p-4 rounded-4 bg-white h-100 text-center">
                                     <h5 className="fw-bold text-dark mb-2 text-start" style={{ color: '#B88A4A' }}>Academy Data Overview</h5>
                                     <p className="text-muted small text-start mb-3">Live proportional distribution of students, classes, and packages.</p>
-                                    
+
                                     <div className="d-flex justify-content-center align-items-center my-2">
-                                        <div 
+                                        <div
                                             className="rounded-circle d-flex flex-column align-items-center justify-content-center shadow-sm"
-                                            style={{ 
-                                                width: '190px', 
-                                                height: '190px', 
-                                                background: totalItems > 0 
+                                            style={{
+                                                width: '190px',
+                                                height: '190px',
+                                                background: totalItems > 0
                                                     ? `conic-gradient(#B88A4A 0deg ${studentDeg}deg, #ffc107 ${studentDeg}deg ${classDeg}deg, #17a2b8 ${classDeg}deg ${pkgDeg}deg, #28a745 ${pkgDeg}deg ${mediaDeg}deg, #6c757d ${mediaDeg}deg 360deg)`
                                                     : '#e9ecef',
                                                 padding: '14px',
@@ -1670,7 +2180,7 @@ const AdminDashboard = () => {
                             <div className="col-lg-6">
                                 <div className="card border-0 shadow-sm p-4 rounded-4 bg-white h-100">
                                     <h5 className="fw-bold text-dark mb-3">Quick Actions</h5>
-                                    
+
                                     <div className="row g-3 mt-1">
                                         <div className="col-md-6">
                                             <div className="p-3 border rounded-3 bg-light d-flex justify-content-between align-items-center" onClick={() => handleViewChange('Add Students')} style={{ cursor: 'pointer' }}>
@@ -1746,9 +2256,9 @@ const AdminDashboard = () => {
                                                         <td>{student.email || 'N/A'}</td>
                                                         <td>{student.phone || student.mobile || 'N/A'}</td>
                                                         <td>
-                                                            <span 
+                                                            <span
                                                                 className="badge px-2.5 py-1 rounded-pill fw-normal"
-                                                                style={{ 
+                                                                style={{
                                                                     backgroundColor: typeVal === 'Online' ? '#e7f1ff' : '#d1e7dd',
                                                                     color: typeVal === 'Online' ? '#0d6efd' : '#0f5132',
                                                                     fontSize: '0.75rem'
@@ -1797,10 +2307,10 @@ const AdminDashboard = () => {
                 return <AddClass />;
             case 'Class List':
                 return <ClassList />;
-            case 'Event Settings':
-                return <FashionShowManage />;
+            case 'Fashion Show Form':
+                return <FashionShow />;
             case 'Registrations List':
-                return <FashionShowRegistrations />;
+                return <ParticipantRegistrations />;
             default:
                 return <div className="p-4"><h3>Content for {activeView} is coming soon...</h3></div>;
         }
@@ -1820,19 +2330,19 @@ const AdminDashboard = () => {
 
             {/* Backdrop overlay for mobile drawer */}
             {sidebarOpen && (
-                <div 
-                    className="d-lg-none position-fixed top-0 start-0 w-100 h-100 bg-black bg-opacity-50" 
+                <div
+                    className="d-lg-none position-fixed top-0 start-0 w-100 h-100 bg-black bg-opacity-50"
                     style={{ zIndex: 1030 }}
                     onClick={() => setSidebarOpen(false)}
                 ></div>
             )}
 
             {/* Sidebar */}
-            <div 
-                className="bg-dark text-white p-3 shadow position-fixed top-0 start-0 h-100 overflow-y-auto" 
-                style={{ 
-                    width: '280px', 
-                    zIndex: 1040, 
+            <div
+                className="bg-dark text-white p-3 shadow position-fixed top-0 start-0 h-100 overflow-y-auto"
+                style={{
+                    width: '280px',
+                    zIndex: 1040,
                     paddingTop: '30px',
                     marginTop: '70px',
                     transform: sidebarOpen ? 'translateX(0)' : 'translateX(-100%)',
@@ -1847,8 +2357,8 @@ const AdminDashboard = () => {
                     </button>
                 </div>
 
-                <h3 
-                    className="text-center fw-bold py-4 mt-2 d-none d-lg-block" 
+                <h3
+                    className="text-center fw-bold py-4 mt-2 d-none d-lg-block"
                     style={{ color: '#B88A4A', letterSpacing: '1px', cursor: 'pointer' }}
                     onClick={() => handleViewChange('Welcome')}
                 >
@@ -1891,7 +2401,7 @@ const AdminDashboard = () => {
                                                 fontSize: '14px'
                                             }}
                                         >
-                                            {subItem.includes('Add') || subItem.includes('Event') ? <FaPlus size={10} className="me-2" /> : <FaList size={10} className="me-2" />}
+                                            {subItem.includes('Add') || subItem.includes('Event') || subItem.includes('Form') ? <FaPlus size={10} className="me-2" /> : <FaList size={10} className="me-2" />}
                                             {subItem}
                                         </button>
                                     ))}

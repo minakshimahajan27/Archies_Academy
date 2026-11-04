@@ -454,7 +454,7 @@ const AddClass = () => {
                                 </div>
 
                                 <div className="mb-3">
-                                    <label className="form-label fw-bold">What will they learn? (Brief)</label>
+                                    <label className="form-label fw-bold">What will they learn?</label>
                                     <textarea 
                                         className="form-control" 
                                         rows="3" 

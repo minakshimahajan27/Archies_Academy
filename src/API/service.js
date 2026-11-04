@@ -1,6 +1,10 @@
 // src/API/service.js
 import { ADMIN_LOGIN , ADD_PACKAGE, GET_PACKAGE ,UPDATE_PACKAGE,DELETE_PACKAGE} from "./auth.js";
 import { ADD_MEDIA, GET_ALL_MEDIA, UPDATE_MEDIA, DELETE_MEDIA } from "./auth.js";
+import { GET_ALL_COURSES } from "./auth.js"
+
+
+import axios from 'axios';
 // Admin Login Service
 export const adminLogin = async (email, password) => {
   try {
@@ -213,6 +217,61 @@ export const deleteMediaService = async (id) => {
     return data;
   } catch (error) {
     console.error("Delete Media Error:", error.message);
+    throw error;
+  }
+};
+
+
+// --- Service Functions ---.............................................
+
+// Sabhi courses fetch karne ke liye (Get All Courses)
+export const getAllCoursesService = async () => {
+  try {
+    const response = await axios.get(GET_ALL_COURSES);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching courses:", error);
+    throw error;
+  }
+};
+
+// Naya course add karne ke liye (Add Course - FormData/Image ke sath)
+export const addCourseService = async (courseData) => {
+  try {
+    const response = await axios.post(ADD_COURSE, courseData, {
+      headers: {
+        'Content-Type': 'multipart/form-data', // Kyunki aap upload.single('file') use kar rahe hain
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error adding course:", error);
+    throw error;
+  }
+};
+
+// Course update karne ke liye (Update Course)
+export const updateCourseService = async (id, courseData) => {
+  try {
+    const response = await axios.put(`${UPDATE_COURSE}/${id}`, courseData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error updating course:", error);
+    throw error;
+  }
+};
+
+// Course delete karne ke liye (Delete Course)
+export const deleteCourseService = async (id) => {
+  try {
+    const response = await axios.delete(`${DELETE_COURSE}/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error deleting course:", error);
     throw error;
   }
 };

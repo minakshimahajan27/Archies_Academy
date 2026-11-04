@@ -142,7 +142,7 @@ export default function PriceH() {
   const handleWhatsAppBooking = (packageName, packagePrice) => {
     const phoneNumber = "919876543210"; // Apna WhatsApp number yaha daalein (Country code ke sath, bina '+' ke)
     const message = encodeURIComponent(`Hello, I want to book the package *${packageName}* priced at *₹${packagePrice}*. Please guide me with the further process.`);
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    window.open(`https://wa.me/${9422577198}?text=${message}`, '_blank');
   };
 
   return (

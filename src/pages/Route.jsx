@@ -27,9 +27,9 @@ import Allphoto from './Allphoto';
 import AddStudent from './Addstudent';
 import StudentList from './StudentList';
 
-import FashionShowModal from '../components/FashionShowModal';
-import FashionShowManage from './FashionShowManage';
-import FashionShowRegistrations from './FashionShowRegistrations';
+import FashionShowForm from './FashionShowForm';
+import RegistrationsList from './RegistrationsList';
+import FashionShowPopup from './FashionShowPopup';
 ;
 
 
@@ -60,9 +60,9 @@ export default function AppRouter() {
         <Route path="/classlist" element={<ClassList />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/allphoto" element={<Allphoto />} />
-        <Route path="/fashion" element={<FashionShowModal />} />
-        <Route path="/showmanage" element={ <FashionShowManage/>} />
-        <Route path="/showregistration" element={<FashionShowRegistrations/>} />
+        <Route path="/fashion" element={<FashionShowForm/>} />
+        <Route path="/participant" element={ <RegistrationsList/>} />
+       <Route path="/popup" element={ <FashionShowPopup/>} />
       </Routes>
     </Router>
   );

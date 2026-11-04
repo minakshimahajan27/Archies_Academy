@@ -20,3 +20,10 @@ export const GET_ALL_STUDENTS = `${API_BASE_URL}/admin/student/getall`;
 export const GET_STUDENT_BY_ID = `${API_BASE_URL}/admin/student/get`;
 export const UPDATE_STUDENT = `${API_BASE_URL}/admin/student/update`;
 export const DELETE_STUDENT = `${API_BASE_URL}/admin/student/delete`;
+
+
+// --- Online Classes API Endpoints ---
+export const ADD_COURSE = `${API_BASE_URL}/courses/add`;
+export const GET_ALL_COURSES = `${API_BASE_URL}/courses/all`;
+export const UPDATE_COURSE = `${API_BASE_URL}/courses/update`; // Iske aage /:id lagega
+export const DELETE_COURSE = `${API_BASE_URL}/courses/delete`;
