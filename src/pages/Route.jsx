@@ -55,9 +55,9 @@ export default function AppRouter() {
 <Route 
           path="/dashboard" 
           element={
-            <ProtectedRoute>
+            
               <Dashboard />
-            </ProtectedRoute>
+            
           } 
         />
       
