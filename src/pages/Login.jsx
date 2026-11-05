@@ -159,10 +159,118 @@
 // };
 
 // export default AdminLogin;
+
+
+// import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { FaLock, FaUserShield } from 'react-icons/fa';
+// import { adminLogin } from '../API/service.js'; // Apni service import karein
+// import Swal from 'sweetalert2';
+
+// const AdminLogin = () => {
+//     const [credentials, setCredentials] = useState({ email: '', password: '' });
+//     const [loading, setLoading] = useState(false);
+//     const navigate = useNavigate();
+
+//     const handleSubmit = async (e) => {
+//         e.preventDefault();
+//         setLoading(true);
+
+//        try {
+//         const data = await adminLogin(credentials.email, credentials.password);
+
+//         if (data.success) {
+//             localStorage.setItem('adminToken', data.token);
+            
+//             // 2. Stylish Success Popup
+//             Swal.fire({
+//                 title: 'Welcome Back!',
+//                 text: 'Login Successful',
+//                 icon: 'success',
+//                 timer: 2000, // 2 second baad apne aap band ho jayega
+//                 showConfirmButton: false,
+//                 background: '#1a1a1a', // Aapke theme ke hisaab se dark background
+//                 color: '#fff',
+//                 iconColor: '#B88A4A' // Golden color aapke theme wala
+//             });
+
+//             setTimeout(() => {
+//                 navigate('/dashboard'); 
+//             }, 2000);
+//         }
+//     } catch (error) {
+//         // 3. Stylish Error Popup
+//         Swal.fire({
+//             title: 'Error!',
+//             text: error.message || 'Invalid Credentials!',
+//             icon: 'error',
+//             confirmButtonColor: '#B88A4A',
+//             background: '#1a1a1a',
+//             color: '#fff'
+//         });
+//     } finally {
+//         setLoading(false);
+    
+// };
+//     };
+
+//     return (
+//         <div className="d-flex align-items-center justify-content-center" 
+//              style={{ minHeight: '100vh', backgroundColor: '#1a1a1a' }}>
+//             <div className="card shadow-lg border-0" style={{ maxWidth: '400px', width: '100%', borderRadius: '10px' }}>
+//                 <div className="card-header text-center border-0 py-4" style={{ backgroundColor: '#B88A4A', color: 'white' }}>
+//                     <FaUserShield size={40} className="mb-2" />
+//                     <h4 className="m-0 fw-bold">Admin Panel</h4>
+//                 </div>
+//                 <div className="card-body p-4">
+//                     <form onSubmit={handleSubmit}>
+//                         <div className="mb-3">
+//                             <label className="form-label small fw-bold text-muted">Admin Email</label>
+//                             <input 
+//                                 type="email" 
+//                                 className="form-control" 
+//                                 placeholder="admin@example.com"
+//                                 value={credentials.email}
+//                                 onChange={(e) => setCredentials({...credentials, email: e.target.value})}
+//                                 required 
+//                             />
+//                         </div>
+//                         <div className="mb-4">
+//                             <label className="form-label small fw-bold text-muted">Secret Password</label>
+//                             <input 
+//                                 type="password" 
+//                                 className="form-control" 
+//                                 placeholder="••••••••"
+//                                 value={credentials.password}
+//                                 onChange={(e) => setCredentials({...credentials, password: e.target.value})}
+//                                 required 
+//                             />
+//                         </div>
+//                         <button 
+//                             type="submit" 
+//                             disabled={loading}
+//                             className="btn w-100 py-2 fw-bold text-white shadow-sm" 
+//                             style={{ backgroundColor: '#B88A4A', border: 'none' }}>
+//                             {loading ? (
+//                                 <span className="spinner-border spinner-border-sm me-2"></span>
+//                             ) : (
+//                                 <FaLock className="me-2" />
+//                             )}
+//                             {loading ? 'VERIFYING...' : 'ACCESS DASHBOARD'}
+//                         </button>
+//                     </form>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default AdminLogin;
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaLock, FaUserShield } from 'react-icons/fa';
-import { adminLogin } from '../API/service.js'; // Apni service import karein
+import { adminLogin } from '../API/service.js';
 import Swal from 'sweetalert2';
 
 const AdminLogin = () => {
@@ -174,42 +282,41 @@ const AdminLogin = () => {
         e.preventDefault();
         setLoading(true);
 
-       try {
-        const data = await adminLogin(credentials.email, credentials.password);
+        try {
+            const data = await adminLogin(credentials.email, credentials.password);
 
-        if (data.success) {
-            localStorage.setItem('adminToken', data.token);
-            
-            // 2. Stylish Success Popup
+            if (data.success) {
+                localStorage.setItem('adminToken', data.token);
+                
+                // Stylish Success Popup
+                Swal.fire({
+                    title: 'Welcome Back!',
+                    text: 'Login Successful',
+                    icon: 'success',
+                    timer: 2000,
+                    showConfirmButton: false,
+                    background: '#1a1a1a',
+                    color: '#fff',
+                    iconColor: '#B88A4A'
+                });
+
+                setTimeout(() => {
+                    navigate('/dashboard', { replace: true }); 
+                }, 2000);
+            }
+        } catch (error) {
+            // Stylish Error Popup
             Swal.fire({
-                title: 'Welcome Back!',
-                text: 'Login Successful',
-                icon: 'success',
-                timer: 2000, // 2 second baad apne aap band ho jayega
-                showConfirmButton: false,
-                background: '#1a1a1a', // Aapke theme ke hisaab se dark background
-                color: '#fff',
-                iconColor: '#B88A4A' // Golden color aapke theme wala
+                title: 'Error!',
+                text: error.response?.data?.message || error.message || 'Invalid Credentials!',
+                icon: 'error',
+                confirmButtonColor: '#B88A4A',
+                background: '#1a1a1a',
+                color: '#fff'
             });
-
-            setTimeout(() => {
-                navigate('/dashboard'); 
-            }, 2000);
+        } finally {
+            setLoading(false);
         }
-    } catch (error) {
-        // 3. Stylish Error Popup
-        Swal.fire({
-            title: 'Error!',
-            text: error.message || 'Invalid Credentials!',
-            icon: 'error',
-            confirmButtonColor: '#B88A4A',
-            background: '#1a1a1a',
-            color: '#fff'
-        });
-    } finally {
-        setLoading(false);
-    
-};
     };
 
     return (
