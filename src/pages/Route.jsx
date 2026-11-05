@@ -12,6 +12,7 @@ import ScrollToTop from '../components/ScrollToTop';
 import Gellary from '../pages/Gellary';
 
 
+
 import OnlineClass from '../pages/OnlineClass';
 import OurTeam from '../pages/OurTeam';
 import Appointment from '../pages/Appointment';
@@ -30,7 +31,7 @@ import StudentList from './StudentList';
 import FashionShowForm from './FashionShowForm';
 import RegistrationsList from './RegistrationsList';
 import FashionShowPopup from './FashionShowPopup';
-;
+import ProtectedRoute from '../components/ProtectedRoute';
 
 
 // Function ka naam 'Router' se badal kar 'AppRouter' kar diya hai
@@ -51,7 +52,15 @@ export default function AppRouter() {
         <Route path="/ourTeam" element={<OurTeam />} />
         <Route path="/appointment" element={<Appointment />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+<Route 
+          path="/dashboard" 
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } 
+        />
+      
         <Route path="/addPackage" element={<AddPackage />} />
         <Route path="/PackageList" element={<PackageList />} />
         <Route path="/addstudent" element={<AddStudent />} />

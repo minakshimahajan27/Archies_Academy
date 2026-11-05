@@ -106,7 +106,7 @@ export default function Allphoto() {
                                     <div style={{ height: '260px', width: '100%', overflow: 'hidden', position: 'relative' }}>
                                         {item.mediaType === 'photo' ? (
                                             <img 
-                                                src={item.fileUrl || `http://localhost:5000/uploads/${item.file}`} 
+                                                src={item.fileUrl || `https://archies-academy.onrender.com/uploads/${item.file}`} 
                                                 alt="Gallery Item" 
                                                 style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
                                                 onMouseEnter={(e) => e.target.style.transform = 'scale(1.1)'}
@@ -115,7 +115,7 @@ export default function Allphoto() {
                                             />
                                         ) : (
                                             <video 
-                                                src={item.fileUrl || `http://localhost:5000/uploads/${item.file}`} 
+                                                src={item.fileUrl || `https://archies-academy.onrender.com/uploads/${item.file}`} 
                                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                                                 controls
                                             />

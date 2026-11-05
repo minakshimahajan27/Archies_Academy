@@ -1,6 +1,6 @@
 
 // export const API_BASE_URL = "https://archies-academy.onrender.com/api";
-export const API_BASE_URL = "http://localhost:5000/api";
+export const API_BASE_URL = "https://archies-academy.onrender.com/api";
 export const ADMIN_LOGIN = `${API_BASE_URL}/admin/login`;
 
 export const ADD_PACKAGE = `${API_BASE_URL}/admin/packages/add`;

@@ -20,7 +20,7 @@
 //   useEffect(() => {
 //     const checkFashionShow = async () => {
 //       try {
-//         const res = await axios.get('http://localhost:5000/api/admin/fashion-show/active');
+//         const res = await axios.get('https://archies-academy.onrender.com/api/admin/fashion-show/active');
 //         if (res.data.success && res.data.data) {
 //           setFashionShow(res.data.data);
 //         }
@@ -82,7 +82,7 @@ export default function Home() {
   useEffect(() => {
     const checkFashionShow = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/admin/fashion-show/active');
+        const res = await axios.get('https://archies-academy.onrender.com/api/admin/fashion-show/active');
         if (res.data.success && res.data.data) {
           setFashionShow(res.data.data);
         }

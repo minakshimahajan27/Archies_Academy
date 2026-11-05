@@ -65,7 +65,7 @@ const ClassList = () => {
     // Fetch Courses
     const fetchCourses = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/admin/courses/all');
+            const response = await fetch('https://archies-academy.onrender.com/api/admin/courses/all');
             const data = await response.json();
             if (data.success) {
                 setCourses(data.data);
@@ -89,7 +89,7 @@ const ClassList = () => {
         setPrice(course.price || '');
         setValidity(course.validity || 'Lifetime Access');
         setDescription(course.description || '');
-        setPreview(course.image ? `http://localhost:5000/uploads/${course.image}` : null);
+        setPreview(course.image ? `https://archies-academy.onrender.com/uploads/${course.image}` : null);
         setFile(null);
         setShowEditModal(true);
     };
@@ -119,7 +119,7 @@ const ClassList = () => {
                 formData.append('file', file); // Multer single file field name
             }
 
-            const response = await fetch(`http://localhost:5000/api/admin/courses/update/${selectedCourse._id}`, {
+            const response = await fetch(`https://archies-academy.onrender.com/api/admin/courses/update/${selectedCourse._id}`, {
                 method: 'PUT',
                 body: formData,
             });
@@ -145,7 +145,7 @@ const ClassList = () => {
     const handleDelete = async (id) => {
         if (window.confirm('Are you sure you want to delete this course?')) {
             try {
-                const response = await fetch(`http://localhost:5000/api/admin/courses/delete/${id}`, {
+                const response = await fetch(`https://archies-academy.onrender.com/api/admin/courses/delete/${id}`, {
                     method: 'DELETE',
                 });
                 const data = await response.json();
@@ -188,7 +188,7 @@ const ClassList = () => {
                                     <tr key={course._id}>
                                         <td className="px-4">
                                             <img 
-                                                src={`http://localhost:5000/uploads/${course.image}`} 
+                                                src={`https://archies-academy.onrender.com/uploads/${course.image}`} 
                                                 alt={course.title} 
                                                 style={{ width: '50px', height: '50px', objectFit: 'cover' }} 
                                                 className="rounded border"

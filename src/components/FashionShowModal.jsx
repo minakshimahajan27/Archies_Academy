@@ -39,7 +39,7 @@ const FashionShowModal = ({ event, onClose }) => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5000/api/admin/fashion-show/register', data, {
+            const response = await axios.post('https://archies-academy.onrender.com/api/admin/fashion-show/register', data, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 
@@ -85,7 +85,7 @@ const FashionShowModal = ({ event, onClose }) => {
                                         <small className="text-muted d-block mb-2">Scan QR code to pay via UPI</small>
                                         {event.qrCodeImage && (
                                             <img 
-                                                src={`http://localhost:5000/${event.qrCodeImage}`} 
+                                                src={`https://archies-academy.onrender.com/${event.qrCodeImage}`} 
                                                 alt="Payment QR" 
                                                 className="img-fluid rounded border shadow-sm" 
                                                 style={{ width: '140px', height: '140px', objectFit: 'cover' }} 

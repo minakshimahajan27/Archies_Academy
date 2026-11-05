@@ -18,7 +18,7 @@ const BeautyAcademy = () => {
       setLoading(true);
       setError('');
 
-      const res = await axios.get('http://localhost:5000/api/admin/courses/all');
+      const res = await axios.get('https://archies-academy.onrender.com/api/admin/courses/all');
       const courseData = res.data.data || res.data.courses || res.data;
 
       if (Array.isArray(courseData)) {
@@ -67,7 +67,7 @@ const BeautyAcademy = () => {
   // };
   const getCourseImage = (course, index) => {
   if (course.image) {
-    return `http://localhost:5000/uploads/${course.image}`;
+    return `https://archies-academy.onrender.com/uploads/${course.image}`;
   }
 
   const defaultImages = [makeup, p1, p6];

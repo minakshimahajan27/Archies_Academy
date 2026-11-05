@@ -283,14 +283,14 @@
 //                             <div style={{ height: '160px', backgroundColor: '#eee' }}>
 //                                 {item.mediaType === 'photo' ? (
 //                                     <img 
-//                                         src={item.fileUrl || `http://localhost:5000/uploads/${item.file}`} 
+//                                         src={item.fileUrl || `https://archies-academy.onrender.com/uploads/${item.file}`} 
 //                                         alt={item.title} 
 //                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
 //                                         onError={(e) => { e.target.src = "https://via.placeholder.com/150"; }}
 //                                     />
 //                                 ) : (
 //                                     <video 
-//                                         src={item.fileUrl || `http://localhost:5000/uploads/${item.file}`} 
+//                                         src={item.fileUrl || `https://archies-academy.onrender.com/uploads/${item.file}`} 
 //                                         style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
 //                                     />
 //                                 )}
@@ -593,7 +593,7 @@ const MediaList = () => {
             {/* Gallery Cards Grid */}
             <div className="row g-4">
                 {filteredItems.map((item) => {
-                    const fileSrc = item.fileUrl || `http://localhost:5000/uploads/${item.file}`;
+                    const fileSrc = item.fileUrl || `https://archies-academy.onrender.com/uploads/${item.file}`;
                     return (
                         <div className="col-sm-6 col-md-4 col-xl-3" key={item._id}>
                             <div className="card h-100 border-0 shadow-sm overflow-hidden" style={{ borderRadius: '16px', background: '#fff' }}>
@@ -683,14 +683,14 @@ const MediaList = () => {
                             <div className="p-2 d-flex justify-content-center align-items-center">
                                 {previewModalItem.mediaType === 'photo' ? (
                                     <img 
-                                        src={previewModalItem.fileUrl || `http://localhost:5000/uploads/${previewModalItem.file}`} 
+                                        src={previewModalItem.fileUrl || `https://archies-academy.onrender.com/uploads/${previewModalItem.file}`} 
                                         alt="Preview" 
                                         className="img-fluid rounded-4 shadow-lg"
                                         style={{ maxHeight: '85vh', maxWidth: '100%', objectFit: 'contain' }}
                                     />
                                 ) : (
                                     <video 
-                                        src={previewModalItem.fileUrl || `http://localhost:5000/uploads/${previewModalItem.file}`} 
+                                        src={previewModalItem.fileUrl || `https://archies-academy.onrender.com/uploads/${previewModalItem.file}`} 
                                         className="w-100 rounded-4 shadow-lg"
                                         style={{ maxHeight: '85vh' }}
                                         controls 

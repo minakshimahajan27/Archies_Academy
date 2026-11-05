@@ -52,7 +52,7 @@
 //     const fetchReviews = async () => {
 //         try {
 //             setLoading(true);
-//             const response = await axios.get('http://localhost:5000/api/admin/reviews/all');
+//             const response = await axios.get('https://archies-academy.onrender.com/api/admin/reviews/all');
 //             if (response.data.success) {
 //                 setReviews(response.data.data);
 //             }
@@ -72,7 +72,7 @@
 //     const handleDelete = async (id) => {
 //         if (window.confirm("Kya aap is review ko delete karna chahte hain?")) {
 //             try {
-//                 const response = await axios.delete(`http://localhost:5000/api/admin/reviews/delete/${id}`);
+//                 const response = await axios.delete(`https://archies-academy.onrender.com/api/admin/reviews/delete/${id}`);
 //                 if (response.data.success) {
 //                     setReviews(reviews.filter(review => review._id !== id));
 //                     toast.success("Review successfully delete ho gaya!");
@@ -108,7 +108,7 @@
 //                                     {/* Client Photo or Default Avatar */}
 //                                     <div className="rounded-circle border d-flex align-items-center justify-content-center bg-light overflow-hidden flex-shrink-0" style={{ width: '55px', height: '55px' }}>
 //                                         {r.clientPhoto ? (
-//                                             <img src={`http://localhost:5000/${r.clientPhoto}`} className="w-100 h-100" alt={r.clientName} style={{ objectFit: 'cover' }} />
+//                                             <img src={`https://archies-academy.onrender.com/${r.clientPhoto}`} className="w-100 h-100" alt={r.clientName} style={{ objectFit: 'cover' }} />
 //                                         ) : (
 //                                             <FaCommentAlt size={22} className="text-muted" />
 //                                         )}
@@ -171,7 +171,7 @@ const ReviewList = () => {
     const fetchReviews = async () => {
         try {
             setLoading(true);
-            const response = await axios.get('http://localhost:5000/api/admin/reviews/all');
+            const response = await axios.get('https://archies-academy.onrender.com/api/admin/reviews/all');
             if (response.data.success) {
                 setReviews(response.data.data);
             }
@@ -191,7 +191,7 @@ const ReviewList = () => {
     const handleDelete = async (id) => {
         if (window.confirm("Kya aap is review ko delete karna chahte hain?")) {
             try {
-                const response = await axios.delete(`http://localhost:5000/api/admin/reviews/delete/${id}`);
+                const response = await axios.delete(`https://archies-academy.onrender.com/api/admin/reviews/delete/${id}`);
                 if (response.data.success) {
                     setReviews(reviews.filter(review => review._id !== id));
                     toast.success("Review successfully delete ho gaya!");
@@ -223,7 +223,7 @@ const ReviewList = () => {
                 formData.append('file', selectedReview.newPhoto);
             }
 
-            const response = await axios.put(`http://localhost:5000/api/admin/reviews/update/${selectedReview._id}`, formData, {
+            const response = await axios.put(`https://archies-academy.onrender.com/api/admin/reviews/update/${selectedReview._id}`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
 
@@ -271,7 +271,7 @@ const ReviewList = () => {
                                             <div className="d-flex align-items-center gap-3">
                                                 <div className="rounded-circle border d-flex align-items-center justify-content-center bg-light overflow-hidden flex-shrink-0" style={{ width: '45px', height: '45px' }}>
                                                     {r.clientPhoto ? (
-                                                        <img src={`http://localhost:5000/${r.clientPhoto}`} className="w-100 h-100" alt={r.clientName} style={{ objectFit: 'cover' }} />
+                                                        <img src={`https://archies-academy.onrender.com/${r.clientPhoto}`} className="w-100 h-100" alt={r.clientName} style={{ objectFit: 'cover' }} />
                                                     ) : (
                                                         <FaCommentAlt size={18} className="text-muted" />
                                                     )}

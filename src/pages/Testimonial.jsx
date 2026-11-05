@@ -16,7 +16,7 @@ const Testimonial = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/admin/reviews/all');
+        const response = await axios.get('https://archies-academy.onrender.com/api/admin/reviews/all');
         if (response.data.success) {
           setTestimonials(response.data.data);
         }
@@ -73,7 +73,7 @@ const Testimonial = () => {
                     <div className="client-img-frame">
                       {item.clientPhoto ? (
                         <img 
-                          src={`http://localhost:5000/${item.clientPhoto}`} 
+                          src={`https://archies-academy.onrender.com/${item.clientPhoto}`} 
                           alt={item.clientName} 
                           style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                         />

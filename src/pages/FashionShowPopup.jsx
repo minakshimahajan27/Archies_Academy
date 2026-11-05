@@ -26,7 +26,7 @@
 //     useEffect(() => {
 //         const fetchActiveEvent = async () => {
 //             try {
-//                 const res = await axios.get('http://localhost:5000/api/admin/fashionshow/all');
+//                 const res = await axios.get('https://archies-academy.onrender.com/api/admin/fashionshow/all');
 //                 const list = res.data.data || res.data;
                 
 //                 // Agar backend se data aaya hai aur array khali nahi hai
@@ -85,7 +85,7 @@
 //                 transactionId: formData.transactionId
 //             };
 
-//             await axios.post('http://localhost:5000/api/admin/fashionshow/register', payload);
+//             await axios.post('https://archies-academy.onrender.com/api/admin/fashionshow/register', payload);
 //             setStep('success');
 //         } catch (err) {
 //             console.error("Registration error:", err);
@@ -104,7 +104,7 @@
 //         if (imgPath.startsWith('http://') || imgPath.startsWith('https://')) {
 //             return imgPath;
 //         }
-//         return `http://localhost:5000/${imgPath.replace(/^\/+/, '')}`;
+//         return `https://archies-academy.onrender.com/${imgPath.replace(/^\/+/, '')}`;
 //     };
 
 //     return (
@@ -269,7 +269,7 @@ const FashionShowPopup = () => {
     useEffect(() => {
         const fetchActiveEvent = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/admin/fashionshow/all');
+                const res = await axios.get('https://archies-academy.onrender.com/api/admin/fashionshow/all');
                 const list = res.data.data || res.data;
                 
                 if (Array.isArray(list) && list.length > 0) {
@@ -327,7 +327,7 @@ const FashionShowPopup = () => {
                 transactionId: formData.transactionId
             };
 
-            await axios.post('http://localhost:5000/api/admin/fashionshow/register', payload);
+            await axios.post('https://archies-academy.onrender.com/api/admin/fashionshow/register', payload);
             setStep('success');
         } catch (err) {
             console.error("Registration error:", err);
@@ -344,7 +344,7 @@ const FashionShowPopup = () => {
         if (imgPath.startsWith('http://') || imgPath.startsWith('https://')) {
             return imgPath;
         }
-        return `http://localhost:5000/${imgPath.replace(/^\/+/, '')}`;
+        return `https://archies-academy.onrender.com/${imgPath.replace(/^\/+/, '')}`;
     };
 
     // 🌟 UPI Dynamic URI jo QR code ke andar amount aur UPI ID set karegi

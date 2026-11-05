@@ -386,7 +386,7 @@
 //                     alt={pkg.packageName} 
 //                   /> */}
 //                   <img
-//                     src={pkg.packageImage.startsWith('http') ? pkg.packageImage : `http://localhost:5000/uploads/${pkg.packageImage}`}
+//                     src={pkg.packageImage.startsWith('http') ? pkg.packageImage : `https://archies-academy.onrender.com/uploads/${pkg.packageImage}`}
 //                     className="card-img-top w-100 h-100"
 //                     style={{ objectFit: 'cover' }}
 //                     alt={pkg.packageName}
@@ -557,7 +557,7 @@
 //                     // Backend port 8000 hai aur folder /uploads/
 //                     src={pkg.packageImage.startsWith('http')
 //                       ? pkg.packageImage
-//                       : `http://localhost:5000/uploads/${pkg.packageImage}`}
+//                       : `https://archies-academy.onrender.com/uploads/${pkg.packageImage}`}
 //                     className="card-img-top w-100 h-100"
 //                     style={{ objectFit: 'cover' }}
 //                     alt={pkg.packageName}
@@ -766,7 +766,7 @@ export default function Price() {
                       <img
                         src={pkg.packageImage.startsWith('http')
                           ? pkg.packageImage
-                          : `http://localhost:5000/uploads/${pkg.packageImage}`}
+                          : `https://archies-academy.onrender.com/uploads/${pkg.packageImage}`}
                         className="w-100 h-100 package-img"
                         style={{ objectFit: 'cover', transition: 'transform 0.4s ease' }}
                         alt={pkg.packageName}

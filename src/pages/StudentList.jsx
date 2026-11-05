@@ -277,7 +277,7 @@
 //     const fetchStudents = async () => {
 //         try {
 //             setLoading(true);
-//             const response = await axios.get('http://localhost:5000/api/admin/student/getall');
+//             const response = await axios.get('https://archies-academy.onrender.com/api/admin/student/getall');
 //             if (response.data.success) {
 //                 setStudents(response.data.data);
 //             }
@@ -297,7 +297,7 @@
 //     const handleDelete = async (id) => {
 //         if (window.confirm("Kya aap is student ko remove karna chahte hain?")) {
 //             try {
-//                 const response = await axios.delete(`http://localhost:5000/api/admin/student/delete/${id}`);
+//                 const response = await axios.delete(`https://archies-academy.onrender.com/api/admin/student/delete/${id}`);
 //                 if (response.data.success) {
 //                     setStudents(students.filter(student => student._id !== id));
 //                     toast.success("Student successfully remove ho gaya!");
@@ -319,7 +319,7 @@
 //     const handleEditSubmit = async (e) => {
 //         e.preventDefault();
 //         try {
-//             const response = await axios.put(`http://localhost:5000/api/admin/student/update/${selectedStudent._id}`, {
+//             const response = await axios.put(`https://archies-academy.onrender.com/api/admin/student/update/${selectedStudent._id}`, {
 //                 name: selectedStudent.name,
 //                 course: selectedStudent.course,
 //                 phone: selectedStudent.phone,
@@ -394,7 +394,7 @@
 //                                     {/* Profile Image or Default Avatar */}
 //                                     <div className="rounded-circle border d-flex align-items-center justify-content-center bg-light overflow-hidden flex-shrink-0" style={{ width: '70px', height: '70px' }}>
 //                                         {s.photo ? (
-//                                             <img src={`http://localhost:5000/${s.photo}`} className="w-100 h-100" alt={s.name} style={{ objectFit: 'cover' }} />
+//                                             <img src={`https://archies-academy.onrender.com/${s.photo}`} className="w-100 h-100" alt={s.name} style={{ objectFit: 'cover' }} />
 //                                         ) : (
 //                                             <FaUserGraduate size={32} className="text-muted" />
 //                                         )}
@@ -552,7 +552,7 @@ const StudentList = () => {
     const fetchStudents = async () => {
         try {
             setLoading(true);
-            const response = await axios.get('http://localhost:5000/api/admin/student/getall');
+            const response = await axios.get('https://archies-academy.onrender.com/api/admin/student/getall');
             if (response.data.success) {
                 setStudents(response.data.data);
             }
@@ -572,7 +572,7 @@ const StudentList = () => {
     const handleDelete = async (id) => {
         if (window.confirm("Kya aap is student ko remove karna chahte hain?")) {
             try {
-                const response = await axios.delete(`http://localhost:5000/api/admin/student/delete/${id}`);
+                const response = await axios.delete(`https://archies-academy.onrender.com/api/admin/student/delete/${id}`);
                 if (response.data.success) {
                     setStudents(students.filter(student => student._id !== id));
                     toast.success("Student successfully remove ho gaya!");
@@ -594,7 +594,7 @@ const StudentList = () => {
     const handleEditSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:5000/api/admin/student/update/${selectedStudent._id}`, {
+            const response = await axios.put(`https://archies-academy.onrender.com/api/admin/student/update/${selectedStudent._id}`, {
                 name: selectedStudent.name,
                 course: selectedStudent.course,
                 phone: selectedStudent.phone,
@@ -679,7 +679,7 @@ const StudentList = () => {
                                             <div className="d-flex align-items-center gap-3">
                                                 <div className="rounded-circle border d-flex align-items-center justify-content-center bg-light overflow-hidden flex-shrink-0 shadow-sm" style={{ width: '45px', height: '45px' }}>
                                                     {s.photo ? (
-                                                        <img src={`http://localhost:5000/${s.photo}`} className="w-100 h-100" alt={s.name} style={{ objectFit: 'cover' }} />
+                                                        <img src={`https://archies-academy.onrender.com/${s.photo}`} className="w-100 h-100" alt={s.name} style={{ objectFit: 'cover' }} />
                                                     ) : (
                                                         <FaUserGraduate size={20} className="text-muted" />
                                                     )}

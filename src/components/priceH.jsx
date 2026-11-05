@@ -219,7 +219,7 @@ export default function PriceH() {
                       <img
                         src={pkg.packageImage.startsWith('http')
                           ? pkg.packageImage
-                          : `http://localhost:5000/uploads/${pkg.packageImage}`}
+                          : `https://archies-academy.onrender.com/uploads/${pkg.packageImage}`}
                         className="w-100 h-100 package-img"
                         style={{ objectFit: 'cover', transition: 'transform 0.4s ease' }}
                         alt={pkg.packageName}

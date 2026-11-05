@@ -122,7 +122,7 @@
 //                 formData.append('file', file); // Multer upload.single('file') ke sath match karega
 //             }
 
-//             const response = await fetch('http://localhost:5000/api/admin/courses/add', {
+//             const response = await fetch('https://archies-academy.onrender.com/api/admin/courses/add', {
 //                 method: 'POST',
 //                 body: formData,
 //             });
@@ -324,7 +324,7 @@ const AddClass = () => {
                 formData.append('file', file); // Multer upload.single('file') ke sath match karega
             }
 
-            const response = await fetch('http://localhost:5000/api/admin/courses/add', {
+            const response = await fetch('https://archies-academy.onrender.com/api/admin/courses/add', {
                 method: 'POST',
                 body: formData,
             });

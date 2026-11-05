@@ -313,8 +313,8 @@
 //         }
 
 //         try {
-//             // Aapke backend ka endpoint: http://localhost:5000/api/admin/student/add
-//             const response = await axios.post('http://localhost:5000/api/admin/student/add', formData, {
+//             // Aapke backend ka endpoint: https://archies-academy.onrender.com/api/admin/student/add
+//             const response = await axios.post('https://archies-academy.onrender.com/api/admin/student/add', formData, {
 //                 headers: {
 //                     'Content-Type': 'multipart/form-data'
 //                 }
@@ -563,7 +563,7 @@ const AddStudent = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5000/api/admin/student/add', formData, {
+            const response = await axios.post('https://archies-academy.onrender.com/api/admin/student/add', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

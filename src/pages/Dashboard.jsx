@@ -544,11 +544,11 @@
 //             try {
 //                 setLoadingStats(true);
 //                 const [pkgRes, mediaRes, studentRes, reviewRes, classRes] = await Promise.allSettled([
-//                     axios.get('http://localhost:5000/api/admin/packages/all'),
-//                     axios.get('http://localhost:5000/api/admin/media/all'),
-//                     axios.get('http://localhost:5000/api/admin/student/getall'),
-//                     axios.get('http://localhost:5000/api/admin/reviews/all'),
-//                     axios.get('http://localhost:5000/api/admin/courses/all')
+//                     axios.get('https://archies-academy.onrender.com/api/admin/packages/all'),
+//                     axios.get('https://archies-academy.onrender.com/api/admin/media/all'),
+//                     axios.get('https://archies-academy.onrender.com/api/admin/student/getall'),
+//                     axios.get('https://archies-academy.onrender.com/api/admin/reviews/all'),
+//                     axios.get('https://archies-academy.onrender.com/api/admin/courses/all')
 //                 ]);
 
 //                 // Deep Safe Array Extraction for API Response Differences
@@ -975,11 +975,11 @@
 //             try {
 //                 setLoadingStats(true);
 //                 const [pkgRes, mediaRes, studentRes, reviewRes, classRes] = await Promise.allSettled([
-//                     axios.get('http://localhost:5000/api/admin/packages/all'),
-//                     axios.get('http://localhost:5000/api/admin/media/all'),
-//                     axios.get('http://localhost:5000/api/admin/student/getall'),
-//                     axios.get('http://localhost:5000/api/admin/reviews/all'),
-//                     axios.get('http://localhost:5000/api/admin/courses/all')
+//                     axios.get('https://archies-academy.onrender.com/api/admin/packages/all'),
+//                     axios.get('https://archies-academy.onrender.com/api/admin/media/all'),
+//                     axios.get('https://archies-academy.onrender.com/api/admin/student/getall'),
+//                     axios.get('https://archies-academy.onrender.com/api/admin/reviews/all'),
+//                     axios.get('https://archies-academy.onrender.com/api/admin/courses/all')
 //                 ]);
 
 //                 // Deep Safe Array Extraction for API Response Differences
@@ -1474,11 +1474,11 @@
 //             try {
 //                 setLoadingStats(true);
 //                 const [pkgRes, mediaRes, studentRes, reviewRes, classRes] = await Promise.allSettled([
-//                     axios.get('http://localhost:5000/api/admin/packages/all'),
-//                     axios.get('http://localhost:5000/api/admin/media/all'),
-//                     axios.get('http://localhost:5000/api/admin/student/getall'),
-//                     axios.get('http://localhost:5000/api/admin/reviews/all'),
-//                     axios.get('http://localhost:5000/api/admin/courses/all')
+//                     axios.get('https://archies-academy.onrender.com/api/admin/packages/all'),
+//                     axios.get('https://archies-academy.onrender.com/api/admin/media/all'),
+//                     axios.get('https://archies-academy.onrender.com/api/admin/student/getall'),
+//                     axios.get('https://archies-academy.onrender.com/api/admin/reviews/all'),
+//                     axios.get('https://archies-academy.onrender.com/api/admin/courses/all')
 //                 ]);
 
 //                 // Safe Array Extraction
@@ -1976,11 +1976,11 @@ const AdminDashboard = () => {
             try {
                 setLoadingStats(true);
                 const [pkgRes, mediaRes, studentRes, reviewRes, classRes] = await Promise.allSettled([
-                    axios.get('http://localhost:5000/api/admin/packages/all'),
-                    axios.get('http://localhost:5000/api/admin/media/all'),
-                    axios.get('http://localhost:5000/api/admin/student/getall'),
-                    axios.get('http://localhost:5000/api/admin/reviews/all'),
-                    axios.get('http://localhost:5000/api/admin/courses/all')
+                    axios.get('https://archies-academy.onrender.com/api/admin/packages/all'),
+                    axios.get('https://archies-academy.onrender.com/api/admin/media/all'),
+                    axios.get('https://archies-academy.onrender.com/api/admin/student/getall'),
+                    axios.get('https://archies-academy.onrender.com/api/admin/reviews/all'),
+                    axios.get('https://archies-academy.onrender.com/api/admin/courses/all')
                 ]);
 
                 // Safe Array Extraction
