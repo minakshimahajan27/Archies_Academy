@@ -1,5 +1,5 @@
 
-// export const API_BASE_URL = "https://archies-academy.onrender.com/api";
+
 export const API_BASE_URL = "https://archies-academy.onrender.com/api";
 export const ADMIN_LOGIN = `${API_BASE_URL}/admin/login`;
 
@@ -23,7 +23,7 @@ export const DELETE_STUDENT = `${API_BASE_URL}/admin/student/delete`;
 
 
 // --- Online Classes API Endpoints ---
-export const ADD_COURSE = `${API_BASE_URL}/courses/add`;
-export const GET_ALL_COURSES = `${API_BASE_URL}/courses/all`;
-export const UPDATE_COURSE = `${API_BASE_URL}/courses/update`; // Iske aage /:id lagega
-export const DELETE_COURSE = `${API_BASE_URL}/courses/delete`;
+export const ADD_COURSE = `${API_BASE_URL}/admin/courses/add`;
+export const GET_ALL_COURSES = `${API_BASE_URL}/admin/courses/all`;
+export const UPDATE_COURSE = `${API_BASE_URL}/admin/courses/update`; // Iske aage /:id lagega
+export const DELETE_COURSE = `${API_BASE_URL}/admin/courses/delete`;
