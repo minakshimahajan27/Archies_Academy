@@ -1,6 +1,8 @@
+export const API_BASE_URL = import.meta.env.DEV
+    ? "http://localhost:5000/api"
+    : "https://archies-academy.onrender.com/api";
 
-
-export const API_BASE_URL = "https://archies-academy.onrender.com/api";
+// export const API_BASE_URL = "https://archies-academy.onrender.com/api";
 export const ADMIN_LOGIN = `${API_BASE_URL}/admin/login`;
 
 export const ADD_PACKAGE = `${API_BASE_URL}/admin/packages/add`;
